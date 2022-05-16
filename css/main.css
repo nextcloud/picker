@@ -1,0 +1,7 @@
+header#header {
+	display: none !important;
+}
+
+.oc-dialog {
+	height: 80% !important;
+}
