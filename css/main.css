@@ -3,5 +3,18 @@ header#header {
 }
 
 .oc-dialog {
-	height: 80% !important;
+	height: 100% !important;
+	width: 100% !important;
+	border-radius: unset !important;
+	box-shadow: unset !important;
+	max-height: unset !important;
+	max-width: unset !important;
+}
+
+#oc-dialog-filepicker-content {
+	max-width: unset !important;
+}
+
+.oc-dialog-close {
+	display: none !important;
 }
