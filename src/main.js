@@ -1,5 +1,11 @@
+import Vue from 'vue'
+import PermissionsModal from './PermissionsModal'
+
 import { generateUrl, generateOcsUrl } from '@nextcloud/router'
+import { dirname } from '@nextcloud/paths'
 import axios from '@nextcloud/axios'
+
+let lastPath = null
 
 function editShare(shareId) {
 	const url = generateOcsUrl('/apps/files_sharing/api/v1/shares/{shareId}', { shareId })
@@ -31,12 +37,26 @@ function createPublicLink(path) {
 	})
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+function openFilePicker(permVue) {
 	OC.dialogs.filepicker(
 		t('public_picker', 'Choose a file and start collaborating'),
 		(targetPath) => {
-			createPublicLink(targetPath)
+			// createPublicLink(targetPath)
+			permVue.setOpen(true)
+			lastPath = dirname(targetPath)
 		},
-		false, null, true
+		false, null, true, undefined, lastPath
 	)
+}
+
+document.addEventListener('DOMContentLoaded', (event) => {
+	const View = Vue.extend(PermissionsModal)
+	const permVue = new View().$mount('#public_picker')
+	console.debug('mmmmmmmmmmmmmm', permVue)
+	permVue.$on('closed', () => {
+		console.debug('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCClosed')
+		openFilePicker(permVue)
+	})
+
+	openFilePicker(permVue)
 })

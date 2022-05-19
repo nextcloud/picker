@@ -12,6 +12,7 @@
 namespace OCA\PublicPicker\Controller;
 
 use OCP\AppFramework\Controller;
+use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 
@@ -40,6 +41,20 @@ class PageController extends Controller {
 	public function singleLinkPage(): TemplateResponse {
 		$response = new TemplateResponse(Application::APP_ID, 'main', []);
 		// $response->renderAs(TemplateResponse::RENDER_AS_BASE);
+		$csp = new ContentSecurityPolicy();
+		$csp->addAllowedFrameDomain('*')
+			->addAllowedChildSrcDomain('*');
+//			->addAllowedImageDomain('*')
+//			->addAllowedMediaDomain('*')
+//			->addAllowedFrameDomain('*')
+//			->addAllowedWorkerSrcDomain('*')
+			//->allowInlineScript(true)
+			// to make eval work in frontend
+//			->allowEvalScript(true)
+//			->addAllowedObjectDomain('*')
+//			->addAllowedScriptDomain('*')
+//			->addAllowedConnectDomain('*');
+		$response->setContentSecurityPolicy($csp);
 		return $response;
 	}
 }
