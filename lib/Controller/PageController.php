@@ -11,8 +11,16 @@
 
 namespace OCA\PublicPicker\Controller;
 
+use Exception;
+use OCP\AppFramework\Http;
+use Psr\Log\LoggerInterface;
+use Throwable;
+use OCA\PublicPicker\Service\ImageService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
+use OCP\AppFramework\Http\DataDownloadResponse;
+use OCP\AppFramework\Http\DataResponse;
+use OCP\AppFramework\Http\RedirectResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 
@@ -24,12 +32,24 @@ class PageController extends Controller {
 	 * @var string|null
 	 */
 	private $userId;
+	/**
+	 * @var ImageService
+	 */
+	private $imageService;
+	/**
+	 * @var LoggerInterface
+	 */
+	private $logger;
 
 	public function __construct(string   $appName,
 								IRequest $request,
+								ImageService $imageService,
+								LoggerInterface $logger,
 								?string  $userId) {
 		parent::__construct($appName, $request);
 		$this->userId = $userId;
+		$this->imageService = $imageService;
+		$this->logger = $logger;
 	}
 
 	/**
@@ -56,5 +76,33 @@ class PageController extends Controller {
 //			->addAllowedConnectDomain('*');
 		$response->setContentSecurityPolicy($csp);
 		return $response;
+	}
+
+	/**
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 *
+	 */
+	public function getFileImage(string $path, int $x = 100, int $y = 100) {
+		try {
+			$preview = $this->imageService->getFilePreviewFile($path, $this->userId, $x, $y);
+			if ($preview === null) {
+				$this->logger->error('No preview for user "' . $this->userId . '"');
+				return new DataResponse('', Http::STATUS_NOT_FOUND);
+			}
+			if ($preview['type'] === 'file') {
+				return new DataDownloadResponse(
+					$preview['file']->getContent(),
+					(string)Http::STATUS_OK,
+					$preview['file']->getMimeType()
+				);
+			} elseif ($preview['type'] === 'icon') {
+				return new RedirectResponse($preview['icon']);
+			}
+		} catch (Exception | Throwable $e) {
+			$this->logger->error('getImage error', ['exception' => $e]);
+			return new DataResponse('', Http::STATUS_NOT_FOUND);
+		}
+		return new DataResponse('', Http::STATUS_NOT_FOUND);
 	}
 }

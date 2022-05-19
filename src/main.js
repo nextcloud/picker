@@ -42,6 +42,7 @@ function openFilePicker(permVue) {
 		t('public_picker', 'Choose a file and start collaborating'),
 		(targetPath) => {
 			// createPublicLink(targetPath)
+			permVue.setFilePath(targetPath)
 			permVue.setOpen(true)
 			lastPath = dirname(targetPath)
 		},
