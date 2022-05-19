@@ -63,8 +63,9 @@ class PageController extends Controller {
 		$response = new TemplateResponse(Application::APP_ID, 'main', []);
 		// $response->renderAs(TemplateResponse::RENDER_AS_BASE);
 		$csp = new ContentSecurityPolicy();
-		$csp->addAllowedFrameDomain('*')
-			->addAllowedChildSrcDomain('*');
+		$csp
+			//->addAllowedFrameDomain('*')
+			->addAllowedFrameAncestorDomain('meme.org');
 //			->addAllowedImageDomain('*')
 //			->addAllowedMediaDomain('*')
 //			->addAllowedFrameDomain('*')
