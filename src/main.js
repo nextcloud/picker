@@ -6,6 +6,7 @@ import { generateUrl, generateOcsUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
 import { showError } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
+import moment from '@nextcloud/moment'
 
 let lastPath = null
 
@@ -29,7 +30,7 @@ function createPublicLink(path, permission) {
 	const req = {
 		path,
 		shareType: 3,
-		label: t('public_picker', 'Public picker link'),
+		label: t('public_picker', 'Public picker link') + ' ' + moment().format('YYYY-MM-DD HH:mm:ss'),
 	}
 	axios.post(url, req).then((response) => {
 		console.debug('ADD SUCCESS', response.data?.ocs?.data)
