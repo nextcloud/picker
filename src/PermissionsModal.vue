@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<Modal v-if="open"
+			size="full"
 			@close="onClose">
 			Super modal
 		</Modal>
@@ -23,6 +24,7 @@ export default {
 	data() {
 		return {
 			open: false,
+			filePath: null,
 		}
 	},
 
@@ -43,3 +45,16 @@ export default {
 	},
 }
 </script>
+
+<style scoped lang="scss">
+::v-deep .modal-header {
+	background: var(--color-main-background);
+	&.invisible {
+		visibility: unset !important;
+	}
+	.close-icon {
+		color: var(--color-main-text);
+	}
+}
+</style>
+}
