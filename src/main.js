@@ -1,8 +1,10 @@
 import Vue from 'vue'
+import './bootstrap'
 import PermissionsModal from './PermissionsModal'
 
 import { generateUrl, generateOcsUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
+import { showError } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
 
 let lastPath = null
@@ -18,6 +20,7 @@ function editShare(shareId) {
 		window.location = response.data?.ocs?.data?.url
 	}).catch((error) => {
 		console.debug(error)
+		showError(t('public_picker', 'Error while editing the shared access'))
 	})
 }
 
@@ -34,6 +37,7 @@ function createPublicLink(path) {
 		editShare(shareId)
 	}).catch((error) => {
 		console.error(error)
+		showError(t('public_picker', 'Error while creating the shared access'))
 	})
 }
 
@@ -53,10 +57,12 @@ function openFilePicker(permVue) {
 document.addEventListener('DOMContentLoaded', (event) => {
 	const View = Vue.extend(PermissionsModal)
 	const permVue = new View().$mount('#public_picker')
-	console.debug('mmmmmmmmmmmmmm', permVue)
 	permVue.$on('closed', () => {
-		console.debug('CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCClosed')
 		openFilePicker(permVue)
+	})
+
+	permVue.$on('validate', (filePath) => {
+		createPublicLink(filePath)
 	})
 
 	openFilePicker(permVue)

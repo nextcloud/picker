@@ -9,12 +9,21 @@
 				<label>
 					{{ this.fileName }}
 				</label>
+				<button @click="onValidate">
+					<CheckIcon
+						class="check-icon"
+						:size="16" />
+					<span>
+						{{ t('public_picker', 'Start collaboration') }}
+					</span>
+				</button>
 			</div>
 		</Modal>
 	</div>
 </template>
 
 <script>
+import CheckIcon from 'vue-material-design-icons/Check'
 import Modal from '@nextcloud/vue/dist/Components/Modal'
 import { generateUrl } from '@nextcloud/router'
 import { basename } from '@nextcloud/paths'
@@ -24,6 +33,7 @@ export default {
 
 	components: {
 		Modal,
+		CheckIcon,
 	},
 
 	props: {
@@ -63,7 +73,11 @@ export default {
 		onClose() {
 			this.open = false
 			this.$emit('closed')
-		}
+		},
+		onValidate() {
+			this.open = false
+			this.$emit('validate', this.filePath)
+		},
 	},
 }
 </script>
@@ -88,6 +102,14 @@ export default {
 	.file-image {
 		width: auto;
 		height: 100px;
+	}
+	button {
+		display: flex;
+		align-items: center;
+		.check-icon {
+			color: var(--color-success);
+			margin-right: 8px;
+		}
 	}
 }
 </style>
