@@ -9,6 +9,27 @@
 				<label>
 					{{ this.fileName }}
 				</label>
+				<fieldset class="perm-list">
+					<label v-for="p in permissions"
+						:key="p.id"
+						:class="{ permission: true, selected: selectedPermission === p.id }"
+						:for="'perm-' + p.id">
+						<input :id="'perm-' + p.id"
+							   v-model="selectedPermission"
+							   name="permission"
+							   :value="p.id"
+							   type="radio">
+						<EyeIcon v-if="p.id === 'read'"
+							 class="perm-icon"
+							:size="20" />
+						<PencilIcon v-else-if="p.id === 'write'"
+							class="perm-icon"
+							:size="20" />
+						<span class="perm-title">
+							{{ p.label }}
+						</span>
+					</label>
+				</fieldset>
 				<button @click="onValidate">
 					<CheckIcon
 						class="check-icon"
@@ -24,9 +45,28 @@
 
 <script>
 import CheckIcon from 'vue-material-design-icons/Check'
+import PencilIcon from 'vue-material-design-icons/Pencil'
+import EyeIcon from 'vue-material-design-icons/Eye'
 import Modal from '@nextcloud/vue/dist/Components/Modal'
 import { generateUrl } from '@nextcloud/router'
 import { basename } from '@nextcloud/paths'
+
+const permissions = [
+	{
+		id: 'read',
+		label: t('public_picker', 'View only'),
+	},
+	{
+		id: 'write',
+		label: t('public_picker', 'Edit'),
+	},
+	/*
+	{
+		id: 'plop',
+		label: t('public_picker', 'plop'),
+	},
+	*/
+]
 
 export default {
 	name: 'PermissionsModal',
@@ -34,6 +74,8 @@ export default {
 	components: {
 		Modal,
 		CheckIcon,
+		PencilIcon,
+		EyeIcon,
 	},
 
 	props: {
@@ -43,6 +85,8 @@ export default {
 		return {
 			open: false,
 			filePath: null,
+			selectedPermission: 'read',
+			permissions,
 		}
 	},
 
@@ -76,7 +120,7 @@ export default {
 		},
 		onValidate() {
 			this.open = false
-			this.$emit('validate', this.filePath)
+			this.$emit('validate', this.filePath, this.selectedPermission)
 		},
 	},
 }
@@ -109,6 +153,43 @@ export default {
 		.check-icon {
 			color: var(--color-success);
 			margin-right: 8px;
+		}
+	}
+	.perm-list {
+		display: flex;
+		flex-direction: column;
+		.permission {
+			display: flex;
+			align-items: center;
+			width: 300px;
+			border: 2px solid var(--color-border-dark);
+			border-top: 0;
+			&:first-child {
+				border-top: 2px solid var(--color-border-dark);
+				border-top-left-radius: var(--border-radius);
+				border-top-right-radius: var(--border-radius);
+			}
+			&:last-child {
+				border-bottom-left-radius: var(--border-radius);
+				border-bottom-right-radius: var(--border-radius);
+			}
+			&:focus,
+			&:hover {
+				background-color: var(--color-background-hover);
+			}
+			&.selected {
+				background: var(--color-primary-light-hover);
+				border-color: var(--color-primary);
+				border-top: 2px solid var(--color-primary);
+			}
+			input {
+				// display: none;
+				opacity: 0;
+				width: 0;
+			}
+			.perm-icon {
+				margin: 0 10px 0 10px;
+			}
 		}
 	}
 }

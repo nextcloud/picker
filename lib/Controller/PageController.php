@@ -13,6 +13,7 @@ namespace OCA\PublicPicker\Controller;
 
 use Exception;
 use OCP\AppFramework\Http;
+use OCP\AppFramework\Http\Response;
 use Psr\Log\LoggerInterface;
 use Throwable;
 use OCA\PublicPicker\Service\ImageService;
@@ -82,8 +83,12 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 *
+	 * @param string $path
+	 * @param int $x
+	 * @param int $y
+	 * @return DataDownloadResponse|DataResponse|RedirectResponse
 	 */
-	public function getFileImage(string $path, int $x = 100, int $y = 100) {
+	public function getFileImage(string $path, int $x = 100, int $y = 100): Response {
 		try {
 			$preview = $this->imageService->getFilePreviewFile($path, $this->userId, $x, $y);
 			if ($preview === null) {

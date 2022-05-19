@@ -49,6 +49,16 @@ class ImageService {
 		$this->mimeTypeDetector = $mimeTypeDetector;
 	}
 
+	/**
+	 * @param string $filePath
+	 * @param string $userId
+	 * @param int $x
+	 * @param int $y
+	 * @return array|null
+	 * @throws NotFoundException
+	 * @throws \OCP\Files\NotPermittedException
+	 * @throws \OC\User\NoUserException
+	 */
 	public function getFilePreviewFile(string $filePath, string $userId, int $x = 100, int $y = 100): ?array {
 		$userFolder = $this->root->getUserFolder($userId);
 		$file = $userFolder->get($filePath);

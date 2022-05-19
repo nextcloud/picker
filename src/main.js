@@ -9,10 +9,10 @@ import axios from '@nextcloud/axios'
 
 let lastPath = null
 
-function editShare(shareId) {
+function editShare(shareId, permission) {
 	const url = generateOcsUrl('/apps/files_sharing/api/v1/shares/{shareId}', { shareId })
 	const req = {
-		permissions: 3,
+		permissions: permission === 'write' ? 3 : undefined,
 		expireDate: '',
 	}
 	axios.put(url, req).then((response) => {
@@ -24,7 +24,7 @@ function editShare(shareId) {
 	})
 }
 
-function createPublicLink(path) {
+function createPublicLink(path, permission) {
 	const url = generateOcsUrl('/apps/files_sharing/api/v1/shares')
 	const req = {
 		path,
@@ -34,7 +34,7 @@ function createPublicLink(path) {
 	axios.post(url, req).then((response) => {
 		console.debug('ADD SUCCESS', response.data?.ocs?.data)
 		const shareId = response.data?.ocs?.data?.id
-		editShare(shareId)
+		editShare(shareId, permission)
 	}).catch((error) => {
 		console.error(error)
 		showError(t('public_picker', 'Error while creating the shared access'))
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		openFilePicker(permVue)
 	})
 
-	permVue.$on('validate', (filePath) => {
-		createPublicLink(filePath)
+	permVue.$on('validate', (filePath, permission) => {
+		createPublicLink(filePath, permission)
 	})
 
 	openFilePicker(permVue)
