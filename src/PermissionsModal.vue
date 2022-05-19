@@ -30,14 +30,24 @@
 						</span>
 					</label>
 				</fieldset>
-				<button @click="onValidate">
-					<CheckIcon
-						class="check-icon"
-						:size="16" />
-					<span>
+				<div class="buttons">
+					<Button @click="onClose">
+						<template #icon>
+							<CloseIcon
+								class="cancel-icon"
+								:size="16" />
+						</template>
+						{{ t('public_picker', 'Cancel') }}
+					</Button>
+					<Button @click="onValidate"
+							type="primary">
+						<template #icon>
+							<CheckIcon
+								:size="16" />
+						</template>
 						{{ t('public_picker', 'Start collaboration') }}
-					</span>
-				</button>
+					</Button>
+				</div>
 			</div>
 		</Modal>
 	</div>
@@ -45,8 +55,10 @@
 
 <script>
 import CheckIcon from 'vue-material-design-icons/Check'
+import CloseIcon from 'vue-material-design-icons/Close'
 import PencilIcon from 'vue-material-design-icons/Pencil'
 import EyeIcon from 'vue-material-design-icons/Eye'
+import Button from '@nextcloud/vue/dist/Components/Button'
 import Modal from '@nextcloud/vue/dist/Components/Modal'
 import { generateUrl } from '@nextcloud/router'
 import { basename } from '@nextcloud/paths'
@@ -73,9 +85,11 @@ export default {
 
 	components: {
 		Modal,
+		Button,
 		CheckIcon,
 		PencilIcon,
 		EyeIcon,
+		CloseIcon,
 	},
 
 	props: {
@@ -147,17 +161,19 @@ export default {
 		width: auto;
 		height: 100px;
 	}
-	button {
+	.buttons {
 		display: flex;
-		align-items: center;
-		.check-icon {
-			color: var(--color-success);
-			margin-right: 8px;
+		> * {
+			margin: 0 10px 0 10px;
+		}
+		.cancel-icon {
+			color: var(--color-error);
 		}
 	}
 	.perm-list {
 		display: flex;
 		flex-direction: column;
+		margin: 44px 0 44px 0;
 		.permission {
 			display: flex;
 			align-items: center;
@@ -175,7 +191,7 @@ export default {
 			}
 			&:focus,
 			&:hover {
-				background-color: var(--color-background-hover);
+				background: var(--color-background-hover);
 			}
 			&.selected {
 				background: var(--color-primary-light-hover);
