@@ -35,7 +35,7 @@
 						<template #icon>
 							<CloseIcon
 								class="cancel-icon"
-								:size="16" />
+								:size="20" />
 						</template>
 						{{ t('public_picker', 'Cancel') }}
 					</Button>
@@ -43,7 +43,7 @@
 							type="primary">
 						<template #icon>
 							<CheckIcon
-								:size="16" />
+								:size="20" />
 						</template>
 						{{ t('public_picker', 'Start collaboration') }}
 					</Button>
@@ -178,6 +178,7 @@ export default {
 			display: flex;
 			align-items: center;
 			width: 300px;
+			height: 44px;
 			border: 2px solid var(--color-border-dark);
 			border-bottom: 0;
 			&:first-child {
@@ -205,9 +206,10 @@ export default {
 				// display: none;
 				opacity: 0;
 				width: 0;
+				margin: 0;
 			}
 			.perm-icon {
-				margin: 0 10px 0 10px;
+				margin: 0 12px 0 12px;
 			}
 		}
 	}
