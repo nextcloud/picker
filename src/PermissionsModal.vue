@@ -163,13 +163,13 @@ export default {
 			align-items: center;
 			width: 300px;
 			border: 2px solid var(--color-border-dark);
-			border-top: 0;
+			border-bottom: 0;
 			&:first-child {
-				border-top: 2px solid var(--color-border-dark);
 				border-top-left-radius: var(--border-radius);
 				border-top-right-radius: var(--border-radius);
 			}
 			&:last-child {
+				border-bottom: 2px solid var(--color-border-dark);
 				border-bottom-left-radius: var(--border-radius);
 				border-bottom-right-radius: var(--border-radius);
 			}
@@ -180,7 +180,10 @@ export default {
 			&.selected {
 				background: var(--color-primary-light-hover);
 				border-color: var(--color-primary);
-				border-top: 2px solid var(--color-primary);
+				border-bottom: 2px solid var(--color-primary);
+			}
+			&.selected + .permission {
+				border-top: 0;
 			}
 			input {
 				// display: none;
