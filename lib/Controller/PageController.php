@@ -62,21 +62,21 @@ class PageController extends Controller {
 	public function singleLinkPage(): TemplateResponse {
 		$response = new TemplateResponse(Application::APP_ID, 'main', []);
 		// $response->renderAs(TemplateResponse::RENDER_AS_BASE);
-		$csp = new ContentSecurityPolicy();
-		$csp
-			//->addAllowedFrameDomain('*')
-			->addAllowedFrameAncestorDomain('meme.org');
-//			->addAllowedImageDomain('*')
-//			->addAllowedMediaDomain('*')
-//			->addAllowedFrameDomain('*')
-//			->addAllowedWorkerSrcDomain('*')
-			//->allowInlineScript(true)
-			// to make eval work in frontend
-//			->allowEvalScript(true)
-//			->addAllowedObjectDomain('*')
-//			->addAllowedScriptDomain('*')
-//			->addAllowedConnectDomain('*');
-		$response->setContentSecurityPolicy($csp);
+//		$csp = new ContentSecurityPolicy();
+//		$csp
+//			//->addAllowedFrameDomain('*')
+//			->addAllowedFrameAncestorDomain('meme.org');
+////			->addAllowedImageDomain('*')
+////			->addAllowedMediaDomain('*')
+////			->addAllowedFrameDomain('*')
+////			->addAllowedWorkerSrcDomain('*')
+//			//->allowInlineScript(true)
+//			// to make eval work in frontend
+////			->allowEvalScript(true)
+////			->addAllowedObjectDomain('*')
+////			->addAllowedScriptDomain('*')
+////			->addAllowedConnectDomain('*');
+//		$response->setContentSecurityPolicy($csp);
 		return $response;
 	}
 

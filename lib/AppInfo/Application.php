@@ -9,17 +9,13 @@
 
 namespace OCA\PublicPicker\AppInfo;
 
-use Closure;
-use OCP\IConfig;
-use OCP\IL10N;
-use OCP\INavigationManager;
-use OCP\IURLGenerator;
-use OCP\IUserSession;
+use OCA\PublicPicker\Listener\CSPListener;
 
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\Security\CSP\AddContentSecurityPolicyEvent;
 
 /**
  * Class Application
@@ -28,10 +24,6 @@ use OCP\AppFramework\Bootstrap\IBootstrap;
  */
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'public_picker';
-	/**
-	 * @var mixed
-	 */
-	private $config;
 
 	/**
 	 * Constructor
@@ -40,12 +32,10 @@ class Application extends App implements IBootstrap {
 	 */
 	public function __construct(array $urlParams = []) {
 		parent::__construct(self::APP_ID, $urlParams);
-
-		$container = $this->getContainer();
-		$this->config = $container->get(IConfig::class);
 	}
 
 	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(AddContentSecurityPolicyEvent::class, CSPListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
