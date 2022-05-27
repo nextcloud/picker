@@ -30,7 +30,7 @@ function createPublicLink(path, permission) {
 	const req = {
 		path,
 		shareType: 3,
-		label: t('public_picker', 'Public picker link') + ' ' + moment().format('YYYY-MM-DD HH:mm:ss'),
+		label: '[P] ' + t('public_picker', 'Public picker link') + ' ' + moment().format('YYYY-MM-DD HH:mm:ss'),
 	}
 	axios.post(url, req).then((response) => {
 		console.debug('ADD SUCCESS', response.data?.ocs?.data)
