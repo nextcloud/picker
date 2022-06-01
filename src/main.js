@@ -2,7 +2,7 @@ import Vue from 'vue'
 import './bootstrap'
 import PermissionsModal from './PermissionsModal'
 
-import { generateUrl, generateOcsUrl } from '@nextcloud/router'
+import { generateOcsUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
 import { showError } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'

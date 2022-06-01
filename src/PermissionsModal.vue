@@ -5,9 +5,9 @@
 			@close="onClose">
 			<div class="modal-inner-content">
 				<img :src="imageSrc"
-					class="file-image" />
+					class="file-image">
 				<label>
-					{{ this.fileName }}
+					{{ fileName }}
 				</label>
 				<fieldset class="perm-list">
 					<label v-for="p in permissions"
@@ -15,12 +15,12 @@
 						:class="{ permission: true, selected: selectedPermission === p.id }"
 						:for="'perm-' + p.id">
 						<input :id="'perm-' + p.id"
-							   v-model="selectedPermission"
-							   name="permission"
-							   :value="p.id"
-							   type="radio">
+							v-model="selectedPermission"
+							name="permission"
+							:value="p.id"
+							type="radio">
 						<EyeIcon v-if="p.id === 'read'"
-							 class="perm-icon"
+							class="perm-icon"
 							:size="20" />
 						<PencilIcon v-else-if="p.id === 'write'"
 							class="perm-icon"
@@ -39,8 +39,8 @@
 						</template>
 						{{ t('picker', 'Cancel') }}
 					</Button>
-					<Button @click="onValidate"
-							type="primary">
+					<Button type="primary"
+						@click="onValidate">
 						<template #icon>
 							<CheckIcon
 								:size="20" />
@@ -104,12 +104,6 @@ export default {
 		}
 	},
 
-	watch: {
-	},
-
-	mounted() {
-	},
-
 	computed: {
 		imageSrc() {
 			return generateUrl('/apps/picker/preview?path={filePath}&x=100&y=100', { filePath: this.filePath })
@@ -119,6 +113,12 @@ export default {
 				? basename(this.filePath)
 				: ''
 		},
+	},
+
+	watch: {
+	},
+
+	mounted() {
 	},
 
 	methods: {
