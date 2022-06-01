@@ -1,7 +1,9 @@
 <?php
-$appId = OCA\PublicPicker\AppInfo\Application::APP_ID;
-\OCP\Util::addScript($appId, $appId . '-main');
-\OCP\Util::addStyle($appId, 'main');
+use OCP\Util;
+
+$appId = OCA\Picker\AppInfo\Application::APP_ID;
+Util::addScript($appId, $appId . '-main');
+Util::addStyle($appId, 'main');
 ?>
 
-<div id="public_picker"></div>
+<div id="picker"></div>

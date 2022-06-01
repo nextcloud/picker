@@ -9,7 +9,7 @@ jobs:
     name: Build, upload and release in the appstore
     environment: release
     env:
-      APP_ID: public_picker
+      APP_ID: picker
     runs-on: ubuntu-latest
     steps:
       - name: Use Node 14

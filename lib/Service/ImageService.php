@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Nextcloud - Public picker
+ * Nextcloud - Picker
  *
  * This file is licensed under the Affero General Public License version 3 or
  * later. See the COPYING file.
@@ -10,7 +10,7 @@
  * @copyright Julien Veyssier 2022
  */
 
-namespace OCA\PublicPicker\Service;
+namespace OCA\Picker\Service;
 
 use OC\Files\Node\File;
 use OCP\Files\IMimeTypeDetector;

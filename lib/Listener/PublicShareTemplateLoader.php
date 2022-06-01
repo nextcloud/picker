@@ -24,10 +24,10 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\PublicPicker\Listener;
+namespace OCA\Picker\Listener;
 
 use OCA\Files_Sharing\Event\BeforeTemplateRenderedEvent;
-use OCA\PublicPicker\AppInfo\Application;
+use OCA\Picker\AppInfo\Application;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\Files\FileInfo;
@@ -66,7 +66,7 @@ class PublicShareTemplateLoader implements IEventListener {
 		$label = $share->getLabel();
 
 		if (preg_match('/^\[P\] /', $label) === 1) {
-			Util::addStyle(Application::APP_ID, 'publicPickerShare');
+			Util::addStyle(Application::APP_ID, 'pickerShare');
 		}
 	}
 }

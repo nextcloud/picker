@@ -11,7 +11,7 @@ webpackConfig.stats = {
 }
 
 webpackConfig.entry = {
-    main: { import: path.join(__dirname, 'src', 'main.js'), filename: 'public_picker-main.js' },
+    main: { import: path.join(__dirname, 'src', 'main.js'), filename: 'picker-main.js' },
 }
 
 module.exports = webpackConfig

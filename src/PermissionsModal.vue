@@ -37,7 +37,7 @@
 								class="cancel-icon"
 								:size="20" />
 						</template>
-						{{ t('public_picker', 'Cancel') }}
+						{{ t('picker', 'Cancel') }}
 					</Button>
 					<Button @click="onValidate"
 							type="primary">
@@ -45,7 +45,7 @@
 							<CheckIcon
 								:size="20" />
 						</template>
-						{{ t('public_picker', 'Start collaboration') }}
+						{{ t('picker', 'Start collaboration') }}
 					</Button>
 				</div>
 			</div>
@@ -66,16 +66,16 @@ import { basename } from '@nextcloud/paths'
 const permissions = [
 	{
 		id: 'read',
-		label: t('public_picker', 'View only'),
+		label: t('picker', 'View only'),
 	},
 	{
 		id: 'write',
-		label: t('public_picker', 'Edit'),
+		label: t('picker', 'Edit'),
 	},
 	/*
 	{
 		id: 'plop',
-		label: t('public_picker', 'plop'),
+		label: t('picker', 'plop'),
 	},
 	*/
 ]
@@ -112,7 +112,7 @@ export default {
 
 	computed: {
 		imageSrc() {
-			return generateUrl('/apps/public_picker/preview?path={filePath}&x=100&y=100', { filePath: this.filePath })
+			return generateUrl('/apps/picker/preview?path={filePath}&x=100&y=100', { filePath: this.filePath })
 		},
 		fileName() {
 			return this.filePath

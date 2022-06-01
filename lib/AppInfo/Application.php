@@ -1,19 +1,19 @@
 <?php
 /**
- * Nextcloud - Public picker
+ * Nextcloud - Picker
  *
  *
  * @author Julien Veyssier <eneiluj@posteo.net>
  * @copyright Julien Veyssier 2022
  */
 
-namespace OCA\PublicPicker\AppInfo;
+namespace OCA\Picker\AppInfo;
 
 use OCA\Files_Sharing\Event\BeforeTemplateRenderedEvent;
-use OCA\PublicPicker\Listener\CSPListener;
-use OCA\PublicPicker\Listener\ShareLinkAccessedListener;
-use OCA\Files_Sharing\Event\ShareLinkAccessedEvent;
-use OCA\PublicPicker\Listener\PublicShareTemplateLoader;
+use OCA\Picker\Listener\CSPListener;
+use OCA\Picker\Listener\ShareLinkAccessedListener;
+//use OCA\Files_Sharing\Event\ShareLinkAccessedEvent;
+use OCA\Picker\Listener\PublicShareTemplateLoader;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Bootstrap\IBootContext;
@@ -23,10 +23,10 @@ use OCP\Security\CSP\AddContentSecurityPolicyEvent;
 /**
  * Class Application
  *
- * @package OCA\PublicPicker\AppInfo
+ * @package OCA\Picker\AppInfo
  */
 class Application extends App implements IBootstrap {
-	public const APP_ID = 'public_picker';
+	public const APP_ID = 'picker';
 
 	/**
 	 * Constructor

@@ -21,9 +21,9 @@ declare(strict_types=1);
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-namespace OCA\PublicPicker\Listener;
+namespace OCA\Picker\Listener;
 
-use OCA\PublicPicker\AppInfo\Application;
+use OCA\Picker\AppInfo\Application;
 use OCP\AppFramework\Http\EmptyContentSecurityPolicy;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;

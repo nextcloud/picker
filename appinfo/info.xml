@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <info>
-    <id>public_picker</id>
-    <name>Public picker</name>
+    <id>picker</id>
+    <name>Picker</name>
     <summary>Pick a file and share it</summary>
     <description><![CDATA[This app provides an endpoint to pick a file, generate a public link and directly browse it]]></description>
     <version>0.0.1</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
-    <namespace>PublicPicker</namespace>
+    <namespace>Picker</namespace>
     <documentation>
-        <developer>https://github.com/eneiluj/public_picker</developer>
+        <developer>https://github.com/eneiluj/picker</developer>
     </documentation>
     <category>integration</category>
-    <website>https://github.com/eneiluj/public_picker</website>
-    <bugs>https://github.com/eneiluj/public_picker/issues</bugs>
-    <screenshot>https://github.com/eneiluj/public_picker/raw/master/img/screenshot1.jpg</screenshot>
+    <website>https://github.com/eneiluj/picker</website>
+    <bugs>https://github.com/eneiluj/picker/issues</bugs>
+    <screenshot>https://github.com/eneiluj/picker/raw/master/img/screenshot1.jpg</screenshot>
     <dependencies>
         <nextcloud min-version="22" max-version="25"/>
     </dependencies>

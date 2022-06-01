@@ -1,6 +1,6 @@
 <?php
 /**
- * Nextcloud - Public picker
+ * Nextcloud - Picker
  *
  * This file is licensed under the Affero General Public License version 3 or
  * later. See the COPYING file.
@@ -9,14 +9,14 @@
  * @copyright Julien Veyssier 2022
  */
 
-namespace OCA\PublicPicker\Controller;
+namespace OCA\Picker\Controller;
 
 use Exception;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Response;
 use Psr\Log\LoggerInterface;
 use Throwable;
-use OCA\PublicPicker\Service\ImageService;
+use OCA\Picker\Service\ImageService;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\DataDownloadResponse;
@@ -25,7 +25,7 @@ use OCP\AppFramework\Http\RedirectResponse;
 use OCP\AppFramework\Http\TemplateResponse;
 use OCP\IRequest;
 
-use OCA\PublicPicker\AppInfo\Application;
+use OCA\Picker\AppInfo\Application;
 
 class PageController extends Controller {
 

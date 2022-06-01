@@ -1,7 +1,7 @@
 {
-	"name": "public_picker",
+	"name": "picker",
 	"version": "0.0.1",
-	"description": "Public picker",
+	"description": "Picker",
 	"main": "index.js",
 	"directories": {
 		"test": "tests"
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/eneiluj/public_picker"
+		"url": "https://github.com/eneiluj/picker"
 	},
 	"keywords": [
 		"picker"
@@ -25,9 +25,9 @@
 	"author": "Julien Veyssier",
 	"license": "AGPL-3.0",
 	"bugs": {
-		"url": "https://github.com/eneiluj/public_picker/issues"
+		"url": "https://github.com/eneiluj/picker/issues"
 	},
-	"homepage": "https://github.com/eneiluj/public_picker",
+	"homepage": "https://github.com/eneiluj/picker",
 	"browserslist": [
 		"extends @nextcloud/browserslist-config"
 	],

@@ -1,4 +1,4 @@
-app_name=public_picker
+app_name=picker
 app_version=$(version)
 project_dir=.
 build_dir=/tmp/build
