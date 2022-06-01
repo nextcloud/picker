@@ -54,10 +54,10 @@
 </template>
 
 <script>
-import CheckIcon from 'vue-material-design-icons/Check'
-import CloseIcon from 'vue-material-design-icons/Close'
-import PencilIcon from 'vue-material-design-icons/Pencil'
-import EyeIcon from 'vue-material-design-icons/Eye'
+import CheckIcon from 'vue-material-design-icons/Check.vue'
+import CloseIcon from 'vue-material-design-icons/Close.vue'
+import PencilIcon from 'vue-material-design-icons/Pencil.vue'
+import EyeIcon from 'vue-material-design-icons/Eye.vue'
 import Button from '@nextcloud/vue/dist/Components/Button'
 import Modal from '@nextcloud/vue/dist/Components/Modal'
 import { generateUrl } from '@nextcloud/router'

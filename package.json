@@ -12,6 +12,8 @@
 		"watch": "NODE_ENV=development webpack --progress --watch --config webpack.js",
 		"lint": "eslint --ext .js,.vue src",
 		"lint:fix": "eslint --ext .js,.vue src --fix",
+		"build:vite": "vite build",
+		"watch:vite": "vite build --watch",
 		"stylelint": "stylelint src/**/*.vue src/**/*.scss src/**/*.css",
 		"stylelint:fix": "stylelint src/**/*.vue src/**/*.scss src/**/*.css --fix"
 	},
@@ -55,6 +57,9 @@
 		"@nextcloud/stylelint-config": "^2.1.2",
 		"@nextcloud/webpack-vue-config": "^5.1.0",
 		"eslint-webpack-plugin": "^3.1.1",
-		"stylelint-webpack-plugin": "^3.3.0"
+		"stylelint-webpack-plugin": "^3.3.0",
+		"vite": "^2.9.9",
+		"vite-plugin-commonjs": "^0.4.7",
+		"vite-plugin-vue2": "^2.0.1"
 	}
 }
