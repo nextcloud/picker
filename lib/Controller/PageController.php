@@ -12,8 +12,10 @@
 namespace OCA\Picker\Controller;
 
 use Exception;
+use OCP\App\IAppManager;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Response;
+use OCP\IServerContainer;
 use Psr\Log\LoggerInterface;
 use Throwable;
 use OCA\Picker\Service\ImageService;
@@ -41,16 +43,22 @@ class PageController extends Controller {
 	 * @var LoggerInterface
 	 */
 	private $logger;
+	private IAppManager $appManager;
+	private IServerContainer $serverContainer;
 
 	public function __construct(string   $appName,
 								IRequest $request,
 								ImageService $imageService,
 								LoggerInterface $logger,
+								IAppManager $appManager,
+								IServerContainer $serverContainer,
 								?string  $userId) {
 		parent::__construct($appName, $request);
 		$this->userId = $userId;
 		$this->imageService = $imageService;
 		$this->logger = $logger;
+		$this->appManager = $appManager;
+		$this->serverContainer = $serverContainer;
 	}
 
 	/**
@@ -60,23 +68,35 @@ class PageController extends Controller {
 	 * @return TemplateResponse
 	 */
 	public function singleLinkPage(): TemplateResponse {
+		$supportEnabled = $this->appManager->isEnabledForUser('support', $this->userId);
+		if ($supportEnabled) {
+			/** @var \OCA\Support\Service\SubscriptionService $subscriptionService */
+			$subscriptionService = $this->serverContainer->get(\OCA\Support\Service\SubscriptionService::class);
+			$activeUserCount = $subscriptionService->getActiveUserCount();
+			[
+				$instanceSize,
+				$hasSubscription,
+				$isInvalidSubscription,
+				$isOverLimit,
+				$subscriptionInfo
+			] = $subscriptionService->getSubscriptionInfo();
+			if ($activeUserCount > 500 && (!$hasSubscription || $isInvalidSubscription)) {
+				// forbidden if support app is active AND nbUsers > 500 AND no subscription
+				$message = 'This feature requires Nextcloud enterprise for instances with more than 500 users. Please';
+				return new TemplateResponse('core', '403', ['message' => $message], TemplateResponse::RENDER_AS_GUEST);
+			}
+		}
+		/*
+		return new TemplateResponse('core', 'error', [
+			'errors' => [
+				[
+					'error' => 'yeye',
+					'hint' => 'yeyehint',
+				],
+			],
+		], 'guest');
+		*/
 		$response = new TemplateResponse(Application::APP_ID, 'main', []);
-		// $response->renderAs(TemplateResponse::RENDER_AS_BASE);
-//		$csp = new ContentSecurityPolicy();
-//		$csp
-//			//->addAllowedFrameDomain('*')
-//			->addAllowedFrameAncestorDomain('meme.org');
-////			->addAllowedImageDomain('*')
-////			->addAllowedMediaDomain('*')
-////			->addAllowedFrameDomain('*')
-////			->addAllowedWorkerSrcDomain('*')
-//			//->allowInlineScript(true)
-//			// to make eval work in frontend
-////			->allowEvalScript(true)
-////			->addAllowedObjectDomain('*')
-////			->addAllowedScriptDomain('*')
-////			->addAllowedConnectDomain('*');
-//		$response->setContentSecurityPolicy($csp);
 		return $response;
 	}
 
