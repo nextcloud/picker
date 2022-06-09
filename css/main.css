@@ -19,6 +19,10 @@ header#header {
 	max-width: unset !important;
 }
 
+#oc-dialog-filepicker-content #picker-filestable.filelist td {
+	border-bottom: 0 !important;
+}
+
 .oc-dialog-close {
 	display: none !important;
 }

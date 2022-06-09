@@ -2,13 +2,21 @@
 	<div>
 		<Modal v-if="open"
 			size="full"
+			:out-transition="false"
 			@close="onClose">
 			<div class="modal-inner-content">
-				<img :src="imageSrc"
-					class="file-image">
-				<label>
-					{{ fileName }}
-				</label>
+				<div class="header">
+					<img :src="imageSrc"
+						class="file-image">
+					<div class="labels">
+						<h2 class="file-name">
+							{{ fileName }}
+						</h2>
+						<label class="file-dir">
+							{{ fileName }}
+						</label>
+					</div>
+				</div>
 				<fieldset class="perm-list">
 					<label v-for="p in permissions"
 						:key="p.id"
@@ -32,11 +40,6 @@
 				</fieldset>
 				<div class="buttons">
 					<Button @click="onClose">
-						<template #icon>
-							<CloseIcon
-								class="cancel-icon"
-								:size="20" />
-						</template>
 						{{ t('picker', 'Cancel') }}
 					</Button>
 					<Button type="primary"
@@ -45,7 +48,7 @@
 							<CheckIcon
 								:size="20" />
 						</template>
-						{{ t('picker', 'Start collaboration') }}
+						{{ t('picker', 'Start collaborating') }}
 					</Button>
 				</div>
 			</div>
@@ -55,7 +58,6 @@
 
 <script>
 import CheckIcon from 'vue-material-design-icons/Check'
-import CloseIcon from 'vue-material-design-icons/Close'
 import PencilIcon from 'vue-material-design-icons/Pencil'
 import EyeIcon from 'vue-material-design-icons/Eye'
 import Button from '@nextcloud/vue/dist/Components/Button'
@@ -89,7 +91,6 @@ export default {
 		CheckIcon,
 		PencilIcon,
 		EyeIcon,
-		CloseIcon,
 	},
 
 	props: {
@@ -157,17 +158,30 @@ export default {
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	.file-image {
-		width: auto;
-		height: 100px;
+	.header {
+		display: flex;
+		align-items: center;
+		width: 300px;
+		.file-image {
+			width: auto;
+			height: 70px;
+		}
+		.labels {
+			display: flex;
+			flex-direction: column;
+			margin-left: 16px;
+			.file-name {
+				margin-bottom: 0;
+			}
+			.file-dir {
+				opacity: 0.7;
+			}
+		}
 	}
 	.buttons {
 		display: flex;
 		> * {
 			margin: 0 10px 0 10px;
-		}
-		.cancel-icon {
-			color: var(--color-error);
 		}
 	}
 	.perm-list {

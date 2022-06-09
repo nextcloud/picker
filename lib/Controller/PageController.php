@@ -82,7 +82,7 @@ class PageController extends Controller {
 			] = $subscriptionService->getSubscriptionInfo();
 			if ($activeUserCount > 500 && (!$hasSubscription || $isInvalidSubscription)) {
 				// forbidden if support app is active AND nbUsers > 500 AND no subscription
-				$message = 'This feature requires Nextcloud enterprise for instances with more than 500 users. Please';
+				$message = 'This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support at https://nextcloud.com/pricing';
 				return new TemplateResponse('core', '403', ['message' => $message], TemplateResponse::RENDER_AS_GUEST);
 			}
 		}
