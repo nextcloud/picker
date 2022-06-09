@@ -84,7 +84,7 @@ class PageController extends Controller {
 				$isOverLimit,
 				$subscriptionInfo
 			] = $subscriptionService->getSubscriptionInfo();
-			if ($activeUserCount > 5 && (!$hasSubscription || $isInvalidSubscription)) {
+			if ($activeUserCount > 500 && (!$hasSubscription || $isInvalidSubscription)) {
 				// forbidden if support app is active AND nbUsers > 500 AND no subscription
 				$message = $this->l10n->t('This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support.');
 				return new TemplateResponse(
