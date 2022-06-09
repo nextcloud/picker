@@ -1,0 +1,28 @@
+header#header {
+	display: none !important;
+}
+
+.oc-dialog {
+	height: 100% !important;
+	width: 100% !important;
+	border-radius: unset !important;
+	box-shadow: unset !important;
+	max-height: unset !important;
+	max-width: unset !important;
+
+	.actions.creatable {
+		display: none !important;
+	}
+
+	#oc-dialog-filepicker-content {
+		max-width: unset !important;
+
+		#picker-filestable.filelist td {
+			border-bottom: 0 !important;
+		}
+	}
+
+	.oc-dialog-close {
+		display: none !important;
+	}
+}

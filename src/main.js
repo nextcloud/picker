@@ -7,6 +7,7 @@ import { dirname } from '@nextcloud/paths'
 import { showError } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
+import '../css/main.scss'
 
 let lastPath = null
 
