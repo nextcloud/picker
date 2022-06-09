@@ -15,6 +15,7 @@ use Exception;
 use OCP\App\IAppManager;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Response;
+use OCP\IL10N;
 use OCP\IServerContainer;
 use Psr\Log\LoggerInterface;
 use Throwable;
@@ -45,6 +46,7 @@ class PageController extends Controller {
 	private $logger;
 	private IAppManager $appManager;
 	private IServerContainer $serverContainer;
+	private IL10N $l10n;
 
 	public function __construct(string   $appName,
 								IRequest $request,
@@ -52,6 +54,7 @@ class PageController extends Controller {
 								LoggerInterface $logger,
 								IAppManager $appManager,
 								IServerContainer $serverContainer,
+								IL10N $l10n,
 								?string  $userId) {
 		parent::__construct($appName, $request);
 		$this->userId = $userId;
@@ -59,6 +62,7 @@ class PageController extends Controller {
 		$this->logger = $logger;
 		$this->appManager = $appManager;
 		$this->serverContainer = $serverContainer;
+		$this->l10n = $l10n;
 	}
 
 	/**
@@ -80,10 +84,19 @@ class PageController extends Controller {
 				$isOverLimit,
 				$subscriptionInfo
 			] = $subscriptionService->getSubscriptionInfo();
-			if ($activeUserCount > 500 && (!$hasSubscription || $isInvalidSubscription)) {
+			if ($activeUserCount > 5 && (!$hasSubscription || $isInvalidSubscription)) {
 				// forbidden if support app is active AND nbUsers > 500 AND no subscription
-				$message = 'This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support at https://nextcloud.com/pricing';
-				return new TemplateResponse('core', '403', ['message' => $message], TemplateResponse::RENDER_AS_GUEST);
+				$message = $this->l10n->t('This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support.');
+				return new TemplateResponse(
+					Application::APP_ID,
+					'limit',
+					[
+						'message' => $message,
+						'link' => 'https://nextcloud.com/pricing',
+						'linkText' => 'Nextcloud support',
+					],
+					TemplateResponse::RENDER_AS_GUEST
+				);
 			}
 		}
 		/*
