@@ -12,8 +12,9 @@
 						<h2 class="file-name">
 							{{ fileName }}
 						</h2>
-						<label class="file-dir">
-							{{ fileName }}
+						<label v-if="fileDir"
+							class="file-dir">
+							{{ t('picker', 'in') + ' ' + fileDir }}
 						</label>
 					</div>
 				</div>
@@ -63,7 +64,7 @@ import EyeIcon from 'vue-material-design-icons/Eye'
 import Button from '@nextcloud/vue/dist/Components/Button'
 import Modal from '@nextcloud/vue/dist/Components/Modal'
 import { generateUrl } from '@nextcloud/router'
-import { basename } from '@nextcloud/paths'
+import { basename, dirname } from '@nextcloud/paths'
 
 const permissions = [
 	{
@@ -112,6 +113,11 @@ export default {
 		fileName() {
 			return this.filePath
 				? basename(this.filePath)
+				: ''
+		},
+		fileDir() {
+			return this.filePath
+				? basename(dirname(this.filePath))
 				: ''
 		},
 	},
@@ -212,6 +218,7 @@ export default {
 				background: var(--color-primary-light-hover);
 				border-color: var(--color-primary);
 				border-bottom: 2px solid var(--color-primary);
+				font-weight: bold;
 			}
 			&.selected + .permission {
 				border-top: 0;
