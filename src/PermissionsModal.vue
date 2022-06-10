@@ -211,22 +211,26 @@ export default {
 				border-top-right-radius: var(--border-radius);
 			}
 			&:last-child {
-				border-bottom: 2px solid var(--color-border-dark);
 				border-bottom-left-radius: var(--border-radius);
 				border-bottom-right-radius: var(--border-radius);
+				// last element must have a border
+				border-bottom: 2px solid var(--color-border-dark);
 			}
 			&:focus,
 			&:hover {
-				background: var(--color-background-hover);
+				background: var(--color-primary-light);
 			}
 			&.selected {
-				background: var(--color-primary-light-hover);
-				border-color: var(--color-primary);
-				border-bottom: 2px solid var(--color-primary);
 				font-weight: bold;
-			}
-			&.selected + .permission {
-				border-top: 0;
+				background: var(--color-primary-light);
+				border: 2px solid var(--color-primary-element-light);
+				&:hover {
+					background: var(--color-primary-light-hover);
+					border: 2px solid var(--color-primary);
+				}
+				& + .permission {
+					border-top: 0;
+				}
 			}
 			input {
 				// display: none;
