@@ -9,9 +9,9 @@
 					<img :src="imageSrc"
 						class="file-image">
 					<div class="labels">
-						<h2 class="file-name">
+						<label class="file-name">
 							{{ fileName }}
-						</h2>
+						</label>
 						<label v-if="fileDir"
 							class="file-dir">
 							{{ t('picker', 'in') + ' ' + fileDir }}
@@ -175,9 +175,10 @@ export default {
 		.labels {
 			display: flex;
 			flex-direction: column;
-			margin-left: 16px;
+			margin-left: 12px;
 			.file-name {
-				margin-bottom: 0;
+				font-weight: bold;
+				font-size: 1.2em;
 			}
 			.file-dir {
 				opacity: 0.7;
