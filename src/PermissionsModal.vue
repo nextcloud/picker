@@ -158,6 +158,10 @@ export default {
 	}
 }
 
+::v-deep .modal-wrapper .modal-container {
+	transition: none;
+}
+
 .modal-inner-content {
 	display: flex;
 	flex-direction: column;
