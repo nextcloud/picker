@@ -25,4 +25,19 @@ header#header {
 	.oc-dialog-close {
 		display: none !important;
 	}
+
+	tr:hover {
+		background: none;
+		td {
+			background: var(--color-background-hover);
+		}
+		td:first-child {
+			border-top-left-radius: var(--border-radius-large);
+			border-bottom-left-radius: var(--border-radius-large);
+		}
+		td:last-child {
+			border-top-right-radius: var(--border-radius-large);
+			border-bottom-right-radius: var(--border-radius-large);
+		}
+	}
 }
