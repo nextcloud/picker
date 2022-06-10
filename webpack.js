@@ -14,6 +14,7 @@ webpackConfig.stats = {
 
 webpackConfig.entry = {
 	main: { import: path.join(__dirname, 'src', 'main.js'), filename: 'picker-main.js' },
+	limit: { import: path.join(__dirname, 'src', 'limit.js'), filename: 'picker-limit.js' },
 }
 
 webpackConfig.plugins.push(

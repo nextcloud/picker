@@ -15,6 +15,7 @@ use Exception;
 use OCP\App\IAppManager;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Response;
+use OCP\AppFramework\Services\IInitialState;
 use OCP\IL10N;
 use OCP\IServerContainer;
 use Psr\Log\LoggerInterface;
@@ -47,6 +48,7 @@ class PageController extends Controller {
 	private IAppManager $appManager;
 	private IServerContainer $serverContainer;
 	private IL10N $l10n;
+	private IInitialState $initialStateService;
 
 	public function __construct(string   $appName,
 								IRequest $request,
@@ -54,6 +56,7 @@ class PageController extends Controller {
 								LoggerInterface $logger,
 								IAppManager $appManager,
 								IServerContainer $serverContainer,
+								IInitialState $initialStateService,
 								IL10N $l10n,
 								?string  $userId) {
 		parent::__construct($appName, $request);
@@ -63,6 +66,7 @@ class PageController extends Controller {
 		$this->appManager = $appManager;
 		$this->serverContainer = $serverContainer;
 		$this->l10n = $l10n;
+		$this->initialStateService = $initialStateService;
 	}
 
 	/**
@@ -86,29 +90,20 @@ class PageController extends Controller {
 			] = $subscriptionService->getSubscriptionInfo();
 			if ($activeUserCount > 500 && (!$hasSubscription || $isInvalidSubscription)) {
 				// forbidden if support app is active AND nbUsers > 500 AND no subscription
-				$message = $this->l10n->t('This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support.');
+				$limitInitialState = [
+					'message' => $this->l10n->t('This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support.'),
+					'supportLink' => 'https://nextcloud.com/pricing',
+					'supportLinkMessage' => $this->l10n->t('Nextcloud support'),
+				];
+				$this->initialStateService->provideInitialState('limit', $limitInitialState);
 				return new TemplateResponse(
 					Application::APP_ID,
 					'limit',
-					[
-						'message' => $message,
-						'link' => 'https://nextcloud.com/pricing',
-						'linkText' => 'Nextcloud support',
-					],
+					[],
 					TemplateResponse::RENDER_AS_GUEST
 				);
 			}
 		}
-		/*
-		return new TemplateResponse('core', 'error', [
-			'errors' => [
-				[
-					'error' => 'yeye',
-					'hint' => 'yeyehint',
-				],
-			],
-		], 'guest');
-		*/
 		$response = new TemplateResponse(Application::APP_ID, 'main', []);
 		return $response;
 	}
