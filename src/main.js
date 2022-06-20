@@ -2,13 +2,14 @@ import Vue from 'vue'
 import './bootstrap'
 import PermissionsModal from './PermissionsModal'
 
-import { generateOcsUrl } from '@nextcloud/router'
+import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
 import { showError } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
+let permVue
 let lastPath = null
 let webexApp
 if (window.Webex?.Application) {
@@ -73,14 +74,29 @@ function createPublicLink(path, permission) {
 	})
 }
 
-function openFilePicker(permVue) {
-	OC.dialogs.filepicker(
-		t('picker', 'Choose a file and start collaborating'),
-		(targetPath) => {
+function onFileSelected(targetPath) {
+	const url = generateUrl('/apps/picker/can-share?path={targetPath}', { targetPath })
+	axios.get(url).then((response) => {
+		if (response.data.allowed) {
 			// createPublicLink(targetPath)
 			permVue.setFilePath(targetPath)
 			permVue.setOpen(true)
 			lastPath = dirname(targetPath)
+		} else {
+			showError(t('picker', 'You are not allowed to share this file'))
+			setTimeout(openFilePicker, 500)
+		}
+	}).catch((error) => {
+		console.error(error)
+		showError(t('picker', 'Error while checking if you are allowed to share this file'))
+	})
+}
+
+function openFilePicker() {
+	OC.dialogs.filepicker(
+		t('picker', 'Choose a file and start collaborating'),
+		(targetPath) => {
+			onFileSelected(targetPath)
 		},
 		false, null, true, undefined, lastPath
 	)
@@ -88,14 +104,14 @@ function openFilePicker(permVue) {
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	const View = Vue.extend(PermissionsModal)
-	const permVue = new View().$mount('#picker')
+	permVue = new View().$mount('#picker')
 	permVue.$on('closed', () => {
-		openFilePicker(permVue)
+		openFilePicker()
 	})
 
 	permVue.$on('validate', (filePath, permission) => {
 		createPublicLink(filePath, permission)
 	})
 
-	openFilePicker(permVue)
+	openFilePicker()
 })

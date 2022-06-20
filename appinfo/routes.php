@@ -13,5 +13,6 @@ return [
 	'routes' => [
 		['name' => 'page#singleLinkPage', 'url' => '/single-link', 'verb' => 'GET'],
 		['name' => 'page#getFileImage', 'url' => '/preview', 'verb' => 'GET'],
+		['name' => 'page#canShareFile', 'url' => '/can-share', 'verb' => 'GET'],
 	]
 ];
