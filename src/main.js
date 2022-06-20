@@ -13,6 +13,9 @@ let lastPath = null
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
+	console.debug('Yes we are in a webex app!!!!!!', webexApp)
+} else {
+	console.debug('No webex app!!!!!!')
 }
 
 function editShare(shareId, permission) {
