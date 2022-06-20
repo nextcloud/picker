@@ -15,7 +15,7 @@ if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
 	webexApp.onReady().then(() => {
 		console.debug('host app is ready!!!')
-		log('onReady()', { message: 'host app is ready' })
+		// log('onReady()', { message: 'host app is ready' })
 		/*
 		webexApp.listen().then(() => {
 			app.on('application:displayContextChanged', (payload) => log('application:displayContextChanged', payload));
@@ -26,7 +26,7 @@ if (window.Webex?.Application) {
 			app.on('space:infoChanged', (payload) => log('space:infoChanged', payload));
 		})
 		*/
-	});
+	})
 	console.debug('Yes we are in a webex app!!!!!!', webexApp)
 } else {
 	console.debug('No webex app!!!!!!')
