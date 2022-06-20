@@ -10,6 +10,10 @@ import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
 let lastPath = null
+let webexApp
+if (window.Webex?.Application) {
+	webexApp = new window.Webex.Application()
+}
 
 function editShare(shareId, permission) {
 	const url = generateOcsUrl('/apps/files_sharing/api/v1/shares/{shareId}', { shareId })
@@ -19,7 +23,16 @@ function editShare(shareId, permission) {
 	}
 	axios.put(url, req).then((response) => {
 		console.debug('EDIT SUCCESS', response.data?.ocs?.data)
-		window.location = response.data?.ocs?.data?.url
+		const publicLinkUrl = response.data?.ocs?.data?.url
+		if (webexApp) {
+			webexApp.setShareUrl(publicLinkUrl, publicLinkUrl, t('picker', 'Nextcloud picker')).then(() => {
+				window.location = publicLinkUrl
+			}).catch((error) => {
+				console.error(error)
+			})
+		} else {
+			window.location = publicLinkUrl
+		}
 	}).catch((error) => {
 		console.debug(error)
 		showError(t('picker', 'Error while editing the shared access'))
