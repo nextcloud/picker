@@ -13,6 +13,20 @@ let lastPath = null
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
+	webexApp.onReady().then(() => {
+		console.debug('host app is ready!!!')
+		log('onReady()', { message: 'host app is ready' })
+		/*
+		webexApp.listen().then(() => {
+			app.on('application:displayContextChanged', (payload) => log('application:displayContextChanged', payload));
+			app.on('application:shareStateChanged', (payload) => log('application:shareStateChanged', payload));
+			app.on('application:themeChanged', (payload) => log('application:themeChanged', payload));
+			app.on('meeting:infoChanged', (payload) => log('meeting:infoChanged', payload));
+			app.on('meeting:roleChanged', (payload) => log('meeting:roleChanged', payload));
+			app.on('space:infoChanged', (payload) => log('space:infoChanged', payload));
+		})
+		*/
+	});
 	console.debug('Yes we are in a webex app!!!!!!', webexApp)
 } else {
 	console.debug('No webex app!!!!!!')

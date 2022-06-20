@@ -105,6 +105,9 @@ class PageController extends Controller {
 			}
 		}
 		$response = new TemplateResponse(Application::APP_ID, 'main', []);
+		$csp = new ContentSecurityPolicy();
+		$csp->addAllowedScriptDomain('binaries.webex.com');
+		$response->setContentSecurityPolicy($csp);
 		return $response;
 	}
 
