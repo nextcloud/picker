@@ -81,7 +81,18 @@ class PageController extends Controller {
 	 *
 	 * @return TemplateResponse
 	 */
-	public function singleLinkPage(): TemplateResponse {
+	public function webexSingleLinkPage(): TemplateResponse {
+		$webexSdkUrl = 'https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js';
+		return $this->singleLinkPage($webexSdkUrl);
+	}
+
+	/**
+	 * @NoAdminRequired
+	 * @NoCSRFRequired
+	 *
+	 * @return TemplateResponse
+	 */
+	public function singleLinkPage(?string $additionalScriptUrl = null): TemplateResponse {
 		$supportEnabled = $this->appManager->isEnabledForUser('support', $this->userId);
 		if ($supportEnabled) {
 			/** @var \OCA\Support\Service\SubscriptionService $subscriptionService */
@@ -110,9 +121,12 @@ class PageController extends Controller {
 				);
 			}
 		}
-		$response = new TemplateResponse(Application::APP_ID, 'main', []);
+		$response = new TemplateResponse(Application::APP_ID, 'main', ['additionalScriptUrl' => $additionalScriptUrl]);
 		$csp = new ContentSecurityPolicy();
-		$csp->addAllowedScriptDomain('binaries.webex.com');
+		if ($additionalScriptUrl) {
+			$parsedUrl = parse_url($additionalScriptUrl);
+			$csp->addAllowedScriptDomain($parsedUrl['host']);
+		}
 		$response->setContentSecurityPolicy($csp);
 		return $response;
 	}

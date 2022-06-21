@@ -5,5 +5,9 @@ $appId = OCA\Picker\AppInfo\Application::APP_ID;
 Util::addScript($appId, $appId . '-main');
 ?>
 
-<script src="https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js"></script>
+<?php
+if ($_['additionalScriptUrl']) {
+	echo '<script src="' . $_['additionalScriptUrl'] . '"></script>';
+}
+?>
 <div id="picker"></div>

@@ -1,17 +1,18 @@
 <?php
 /**
- * Nextcloud - GitLab
+ * Nextcloud - Picker
  *
  * This file is licensed under the Affero General Public License version 3 or
  * later. See the COPYING file.
  *
  * @author Julien Veyssier <eneiluj@posteo.net>
- * @copyright Julien Veyssier 2020
+ * @copyright Julien Veyssier 2022
  */
 
 return [
 	'routes' => [
 		['name' => 'page#singleLinkPage', 'url' => '/single-link', 'verb' => 'GET'],
+		['name' => 'page#webexSingleLinkPage', 'url' => '/webex-single-link', 'verb' => 'GET'],
 		['name' => 'page#getFileImage', 'url' => '/preview', 'verb' => 'GET'],
 		['name' => 'page#canShareFile', 'url' => '/can-share', 'verb' => 'GET'],
 	]
