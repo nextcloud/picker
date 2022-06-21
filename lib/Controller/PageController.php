@@ -19,6 +19,7 @@ use OCP\AppFramework\Services\IInitialState;
 use OCP\Constants;
 use OCP\Files\IRootFolder;
 use OCP\Files\NotFoundException;
+use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IServerContainer;
 use Psr\Log\LoggerInterface;
@@ -53,6 +54,7 @@ class PageController extends Controller {
 	private IL10N $l10n;
 	private IInitialState $initialStateService;
 	private IRootFolder $root;
+	private IConfig $config;
 
 	public function __construct(string   $appName,
 								IRequest $request,
@@ -63,6 +65,7 @@ class PageController extends Controller {
 								IRootFolder $root,
 								IInitialState $initialStateService,
 								IL10N $l10n,
+								IConfig $config,
 								?string  $userId) {
 		parent::__construct($appName, $request);
 		$this->userId = $userId;
@@ -73,6 +76,7 @@ class PageController extends Controller {
 		$this->l10n = $l10n;
 		$this->initialStateService = $initialStateService;
 		$this->root = $root;
+		$this->config = $config;
 	}
 
 	/**
@@ -124,8 +128,15 @@ class PageController extends Controller {
 		$response = new TemplateResponse(Application::APP_ID, 'main', ['additionalScriptUrl' => $additionalScriptUrl]);
 		$csp = new ContentSecurityPolicy();
 		if ($additionalScriptUrl) {
+			$allowedScriptDomains = $this->config->getAppValue(Application::APP_ID, 'allowed_script_domains');
+			$allowedScriptDomains = explode(',', $allowedScriptDomains);
+			// add the one for webex
+			$allowedScriptDomains[] = 'binaries.webex.com';
+
 			$parsedUrl = parse_url($additionalScriptUrl);
-			$csp->addAllowedScriptDomain($parsedUrl['host']);
+			if (in_array($parsedUrl['host'], $allowedScriptDomains)) {
+				$csp->addAllowedScriptDomain($parsedUrl['host']);
+			}
 		}
 		$response->setContentSecurityPolicy($csp);
 		return $response;
