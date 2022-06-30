@@ -12,9 +12,11 @@ webpackConfig.stats = {
 	modules: false,
 }
 
+const appId = 'picker'
 webpackConfig.entry = {
-	main: { import: path.join(__dirname, 'src', 'main.js'), filename: 'picker-main.js' },
-	limit: { import: path.join(__dirname, 'src', 'limit.js'), filename: 'picker-limit.js' },
+	main: { import: path.join(__dirname, 'src', 'main.js'), filename: appId + '-main.js' },
+	limit: { import: path.join(__dirname, 'src', 'limit.js'), filename: appId + '-limit.js' },
+	webexShare: { import: path.join(__dirname, 'src', 'webexShare.js'), filename: appId + '-webexShare.js' },
 }
 
 webpackConfig.plugins.push(

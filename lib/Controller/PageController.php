@@ -22,6 +22,7 @@ use OCP\Files\NotFoundException;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IServerContainer;
+use OCP\IURLGenerator;
 use Psr\Log\LoggerInterface;
 use Throwable;
 use OCA\Picker\Service\ImageService;
@@ -55,6 +56,7 @@ class PageController extends Controller {
 	private IInitialState $initialStateService;
 	private IRootFolder $root;
 	private IConfig $config;
+	private IURLGenerator $urlGenerator;
 
 	public function __construct(string   $appName,
 								IRequest $request,
@@ -66,6 +68,7 @@ class PageController extends Controller {
 								IInitialState $initialStateService,
 								IL10N $l10n,
 								IConfig $config,
+								IURLGenerator $urlGenerator,
 								?string  $userId) {
 		parent::__construct($appName, $request);
 		$this->userId = $userId;
@@ -77,6 +80,7 @@ class PageController extends Controller {
 		$this->initialStateService = $initialStateService;
 		$this->root = $root;
 		$this->config = $config;
+		$this->urlGenerator = $urlGenerator;
 	}
 
 	/**
@@ -140,6 +144,30 @@ class PageController extends Controller {
 		}
 		$response->setContentSecurityPolicy($csp);
 		return $response;
+	}
+
+	/**
+	 * @NoCSRFRequired
+	 * @PublicPage
+	 *
+	 * @return TemplateResponse
+	 */
+	public function webexSharePage(string $token, string $fileId): TemplateResponse {
+		$link = $this->urlGenerator->getAbsoluteURL(
+			$this->urlGenerator->linkToRoute('files_sharing.Share.showShare', ['token' => $token])
+		);
+		$state = [
+			'token' => $token,
+			'publicLink' => $link,
+			'fileId' => $fileId,
+		];
+		$this->initialStateService->provideInitialState('webex-share', $state);
+		return new TemplateResponse(
+			Application::APP_ID,
+			'webexShare',
+			[],
+			TemplateResponse::RENDER_AS_GUEST
+		);
 	}
 
 	/**
