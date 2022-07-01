@@ -15,7 +15,7 @@ let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
 	webexApp.onReady().then(() => {
-		console.debug('host app is ready!!!')
+		console.debug('host app is ready!!!', webexApp)
 		// log('onReady()', { message: 'host app is ready' })
 		/*
 		webexApp.listen().then(() => {

@@ -10,12 +10,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		const webexApp = new window.Webex.Application()
 		webexApp.onReady().then(() => {
 			console.debug('host app is ready!!!')
-			const View = Vue.extend(WebexShare)
-			new View({
-				propsData: {
-					userId: 'TODO GET it from sdk',
-				},
-			}).$mount('#webex_share')
+			webexApp.context.getUser().then((user) => {
+				console.debug('getUser() promise resolved. User', user)
+				return
+				const View = Vue.extend(WebexShare)
+				new View({
+					propsData: {
+						userId: 'TODO GET it from sdk',
+					},
+				}).$mount('#webex_share')
+			}).catch((error) => {
+				console.debug('getUser() promise failed ' + error.message)
+			})
 		})
 	} else {
 		window.location = state.publicLink
