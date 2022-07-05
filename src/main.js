@@ -43,10 +43,11 @@ function editShare(shareId, permission) {
 		console.debug('EDIT SUCCESS', response.data?.ocs?.data)
 		const publicLinkUrl = response.data?.ocs?.data?.url
 		if (webexApp) {
-			const token = response.data?.ocs?.data?.token
-			const fileId = response.data?.ocs?.data?.file_source
-			const urlForWebex = generateUrl('/apps/picker/webex-share/{token}?fileId={fileId}', { token, fileId })
-			webexApp.setShareUrl(urlForWebex, urlForWebex, t('picker', 'Nextcloud picker')).then(() => {
+			// const token = response.data?.ocs?.data?.token
+			// const fileId = response.data?.ocs?.data?.file_source
+			// const urlForWebex = generateUrl('/apps/picker/webex-share/{token}?fileId={fileId}', { token, fileId })
+			// webexApp.setShareUrl(urlForWebex, urlForWebex, t('picker', 'Nextcloud picker')).then(() => {
+			webexApp.setShareUrl(publicLinkUrl, publicLinkUrl, t('picker', 'Nextcloud picker')).then(() => {
 				window.location = publicLinkUrl
 			}).catch((error) => {
 				console.error(error)
