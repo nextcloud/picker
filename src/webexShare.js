@@ -1,7 +1,7 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import './bootstrap'
 import { loadState } from '@nextcloud/initial-state'
-import WebexShare from './WebexShare'
+// import WebexShare from './WebexShare'
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	const state = loadState('picker', 'webex-share')
@@ -12,13 +12,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			console.debug('host app is ready!!!')
 			webexApp.context.getUser().then((user) => {
 				console.debug('getUser() promise resolved. User', user)
-				return
+				/*
 				const View = Vue.extend(WebexShare)
 				new View({
 					propsData: {
 						userId: 'TODO GET it from sdk',
 					},
 				}).$mount('#webex_share')
+				*/
 			}).catch((error) => {
 				console.debug('getUser() promise failed ' + error.message)
 			})
