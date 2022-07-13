@@ -203,6 +203,8 @@ class PageController extends Controller {
 	}
 
 	/**
+	 * @NoAdminRequired
+	 *
 	 * @param string $path
 	 * @return DataResponse
 	 */
