@@ -1,4 +1,5 @@
 import { generateUrl } from '@nextcloud/router'
+import { translate as t } from '@nextcloud/l10n'
 
 // get stop event: load single-link again
 const webexScript = document.createElement('script')
@@ -13,6 +14,26 @@ webexScript.onload = () => {
 				webexApp.on('application:shareStateChanged', (e) => {
 					console.debug('shareStateChanged', e)
 					console.debug('we could go back to ', generateUrl('/apps/picker/webex-single-link'))
+					if (e === false) {
+						OC.dialogs.message(
+							t('picker', 'Do you want to choose another file?'),
+							t('picker', 'Choose another file?'),
+							'none',
+							{
+								type: OC.dialogs.YES_NO_BUTTONS,
+								confirm: t('picker', 'Yes'),
+								confirmClasses: 'success',
+								cancel: t('picker', 'No'),
+							},
+							(result) => {
+								if (result) {
+									window.location.replace(generateUrl('/apps/picker/webex-single-link'))
+								}
+							},
+							true,
+							true,
+						)
+					}
 				})
 			})
 		})
