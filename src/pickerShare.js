@@ -1,7 +1,8 @@
 import { generateUrl } from '@nextcloud/router'
 import { translate as t } from '@nextcloud/l10n'
 
-// get stop event: load single-link again
+// react on "stop for all" click, ask if user wants to select another file
+// which means going back to the webex-single-link page
 const webexScript = document.createElement('script')
 webexScript.src = 'https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js'
 webexScript.onload = () => {
@@ -13,7 +14,6 @@ webexScript.onload = () => {
 			webexApp.listen().then(() => {
 				webexApp.on('application:shareStateChanged', (e) => {
 					console.debug('shareStateChanged', e)
-					console.debug('we could go back to ', generateUrl('/apps/picker/webex-single-link'))
 					if (e === false) {
 						OC.dialogs.message(
 							t('picker', 'Do you want to choose another file?'),
@@ -37,9 +37,8 @@ webexScript.onload = () => {
 				})
 			})
 		})
-		console.debug('Yes we are in a webex app!!!!!!', webexApp)
 	} else {
-		console.debug('No webex app!!!!!!')
+		console.debug('No webex app')
 	}
 }
 document.head.append(webexScript)
