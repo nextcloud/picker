@@ -67,6 +67,7 @@ class PublicShareTemplateLoader implements IEventListener {
 
 		if (preg_match('/^\[P\] /', $label) === 1) {
 			Util::addStyle(Application::APP_ID, 'pickerShare');
+			Util::addScript(Application::APP_ID, Application::APP_ID . '-pickerShare');
 		}
 	}
 }

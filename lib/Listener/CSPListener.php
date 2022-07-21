@@ -64,6 +64,7 @@ class CSPListener implements IEventListener {
 			$policy->addAllowedFrameAncestorDomain($url);
 			$policy->addAllowedImageDomain($url);
 		}
+		$policy->addAllowedScriptDomain('https://binaries.webex.com');
 
 		$event->addPolicy($policy);
 	}
