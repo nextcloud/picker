@@ -35,7 +35,7 @@ class CSPListener implements IEventListener {
 	private $request;
 
 	public function __construct(IRequest $request,
-								IConfig $config,
+								IConfig $config
 	) {
 		$this->request = $request;
 		$this->config = $config;
