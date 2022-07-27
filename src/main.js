@@ -15,7 +15,7 @@ let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
 	webexApp.onReady().then(() => {
-		console.debug('host app is ready!!!', webexApp)
+		console.debug('[picker main] host app is ready', webexApp)
 		// log('onReady()', { message: 'host app is ready' })
 		/*
 		webexApp.listen().then(() => {
@@ -28,9 +28,9 @@ if (window.Webex?.Application) {
 		})
 		*/
 	})
-	console.debug('Yes we are in a webex app!!!!!!', webexApp)
+	console.debug('[picker main] Yes we are in a webex app', webexApp)
 } else {
-	console.debug('No webex app!!!!!!')
+	console.debug('[picker main] No webex app')
 }
 
 function editShare(shareId, permission) {
@@ -40,19 +40,22 @@ function editShare(shareId, permission) {
 		expireDate: '',
 	}
 	axios.put(url, req).then((response) => {
-		console.debug('EDIT SUCCESS', response.data?.ocs?.data)
+		console.debug('[picker main] edit share link success', response.data?.ocs?.data)
 		const publicLinkUrl = response.data?.ocs?.data?.url
 		if (webexApp) {
+			console.debug('[picker main] after edit, there is a webex app => setShareUrl')
 			// const token = response.data?.ocs?.data?.token
 			// const fileId = response.data?.ocs?.data?.file_source
 			// const urlForWebex = generateUrl('/apps/picker/webex-share/{token}?fileId={fileId}', { token, fileId })
 			// webexApp.setShareUrl(urlForWebex, urlForWebex, t('picker', 'Nextcloud picker')).then(() => {
 			webexApp.setShareUrl(publicLinkUrl, publicLinkUrl, t('picker', 'Nextcloud picker')).then(() => {
+				console.debug('[picker main] setShareUrl.then => change location to', publicLinkUrl)
 				window.location = publicLinkUrl
 			}).catch((error) => {
 				console.error(error)
 			})
 		} else {
+			console.debug('[picker main] after edit, there is NO webex app => setShareUrl')
 			window.location = publicLinkUrl
 		}
 	}).catch((error) => {

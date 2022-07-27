@@ -6,14 +6,14 @@ import { translate as t } from '@nextcloud/l10n'
 const webexScript = document.createElement('script')
 webexScript.src = 'https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js'
 webexScript.onload = () => {
-	console.debug('loaded the webex script!')
+	console.debug('[picker pickerShare] loaded the webex script')
 	if (window.Webex?.Application) {
 		const webexApp = new window.Webex.Application()
 		webexApp.onReady().then(() => {
-			console.debug('host app is ready!!!', webexApp)
+			console.debug('[picker pickerShare] host app is ready', webexApp)
 			webexApp.listen().then(() => {
 				webexApp.on('application:shareStateChanged', (e) => {
-					console.debug('shareStateChanged', e)
+					console.debug('[picker pickerShare] application:shareStateChanged', e)
 					if (e === false) {
 						OC.dialogs.message(
 							t('picker', 'Do you want to choose another file?'),
@@ -38,7 +38,7 @@ webexScript.onload = () => {
 			})
 		})
 	} else {
-		console.debug('No webex app')
+		console.debug('[picker pickerShare] No webex app')
 	}
 }
 document.head.append(webexScript)
