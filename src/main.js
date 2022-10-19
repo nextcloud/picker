@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import './bootstrap'
-import PermissionsModal from './PermissionsModal'
+import './bootstrap.js'
+import PermissionsModal from './PermissionsModal.vue'
 
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'

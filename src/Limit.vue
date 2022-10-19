@@ -6,26 +6,26 @@
 		<a :href="state.supportLink"
 			target="_blank"
 			style="margin-top: 12px;">
-			<Button type="primary">
+			<NcButton type="primary">
 				<template #icon>
 					<OpenInNewIcon />
 				</template>
 				{{ state.supportLinkMessage }}
-			</Button>
+			</NcButton>
 		</a>
 	</div>
 </template>
 
 <script>
-import OpenInNewIcon from 'vue-material-design-icons/OpenInNew'
-import Button from '@nextcloud/vue/dist/Components/Button'
+import OpenInNewIcon from 'vue-material-design-icons/OpenInNew.vue'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import { loadState } from '@nextcloud/initial-state'
 
 export default {
 	name: 'Limit',
 
 	components: {
-		Button,
+		NcButton,
 		OpenInNewIcon,
 	},
 

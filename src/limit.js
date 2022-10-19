@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import './bootstrap'
-import Limit from './Limit'
+import './bootstrap.js'
+import Limit from './Limit.vue'
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	const View = Vue.extend(Limit)

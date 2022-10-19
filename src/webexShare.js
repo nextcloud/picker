@@ -1,5 +1,5 @@
 // import Vue from 'vue'
-import './bootstrap'
+import './bootstrap.js'
 import { loadState } from '@nextcloud/initial-state'
 // import WebexShare from './WebexShare'
 

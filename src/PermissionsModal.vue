@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Modal v-if="open"
+		<NcModal v-if="open"
 			size="full"
 			:out-transition="false"
 			@close="onClose">
@@ -40,29 +40,29 @@
 					</label>
 				</fieldset>
 				<div class="buttons">
-					<Button @click="onClose">
+					<NcButton @click="onClose">
 						{{ t('picker', 'Cancel') }}
-					</Button>
-					<Button type="primary"
+					</NcButton>
+					<NcButton type="primary"
 						@click="onValidate">
 						<template #icon>
 							<CheckIcon
 								:size="20" />
 						</template>
 						{{ t('picker', 'Start collaborating') }}
-					</Button>
+					</NcButton>
 				</div>
 			</div>
-		</Modal>
+		</NcModal>
 	</div>
 </template>
 
 <script>
-import CheckIcon from 'vue-material-design-icons/Check'
-import PencilIcon from 'vue-material-design-icons/Pencil'
-import EyeIcon from 'vue-material-design-icons/Eye'
-import Button from '@nextcloud/vue/dist/Components/Button'
-import Modal from '@nextcloud/vue/dist/Components/Modal'
+import CheckIcon from 'vue-material-design-icons/Check.vue'
+import PencilIcon from 'vue-material-design-icons/Pencil.vue'
+import EyeIcon from 'vue-material-design-icons/Eye.vue'
+import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
 import { generateUrl } from '@nextcloud/router'
 import { basename, dirname } from '@nextcloud/paths'
 
@@ -87,8 +87,8 @@ export default {
 	name: 'PermissionsModal',
 
 	components: {
-		Modal,
-		Button,
+		NcModal,
+		NcButton,
 		CheckIcon,
 		PencilIcon,
 		EyeIcon,
