@@ -223,10 +223,10 @@ export default {
 			&.selected {
 				font-weight: bold;
 				background: var(--color-primary-light);
-				border: 2px solid var(--color-primary-element-light);
+				border: 2px solid var(--color-primary-element);
 				&:hover {
 					background: var(--color-primary-light-hover);
-					border: 2px solid var(--color-primary);
+					border: 2px solid var(--color-primary-element-hover);
 				}
 				& + .permission {
 					border-top: 0;
