@@ -12,17 +12,22 @@
 namespace OCA\Picker\Controller;
 
 use Exception;
+use OC\User\NoUserException;
 use OCP\App\IAppManager;
 use OCP\AppFramework\Http;
 use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\Constants;
+use OCP\Files\InvalidPathException;
 use OCP\Files\IRootFolder;
 use OCP\Files\NotFoundException;
+use OCP\Files\NotPermittedException;
 use OCP\IConfig;
 use OCP\IL10N;
 use OCP\IServerContainer;
 use OCP\IURLGenerator;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
 use Throwable;
 use OCA\Picker\Service\ImageService;
@@ -39,10 +44,6 @@ use OCA\Picker\AppInfo\Application;
 class PageController extends Controller {
 
 	/**
-	 * @var string|null
-	 */
-	private $userId;
-	/**
 	 * @var ImageService
 	 */
 	private $imageService;
@@ -50,15 +51,40 @@ class PageController extends Controller {
 	 * @var LoggerInterface
 	 */
 	private $logger;
-	private IAppManager $appManager;
-	private IServerContainer $serverContainer;
-	private IL10N $l10n;
-	private IInitialState $initialStateService;
-	private IRootFolder $root;
-	private IConfig $config;
-	private IURLGenerator $urlGenerator;
+	/**
+	 * @var IAppManager
+	 */
+	private $appManager;
+	/**
+	 * @var IServerContainer
+	 */
+	private $serverContainer;
+	/**
+	 * @var IRootFolder
+	 */
+	private $root;
+	/**
+	 * @var IInitialState
+	 */
+	private $initialStateService;
+	/**
+	 * @var IL10N
+	 */
+	private $l10n;
+	/**
+	 * @var IConfig
+	 */
+	private $config;
+	/**
+	 * @var IURLGenerator
+	 */
+	private $urlGenerator;
+	/**
+	 * @var string|null
+	 */
+	private $userId;
 
-	public function __construct(string   $appName,
+	public function __construct(string $appName,
 								IRequest $request,
 								ImageService $imageService,
 								LoggerInterface $logger,
@@ -69,25 +95,26 @@ class PageController extends Controller {
 								IL10N $l10n,
 								IConfig $config,
 								IURLGenerator $urlGenerator,
-								?string  $userId) {
+								?string $userId) {
 		parent::__construct($appName, $request);
-		$this->userId = $userId;
 		$this->imageService = $imageService;
 		$this->logger = $logger;
 		$this->appManager = $appManager;
 		$this->serverContainer = $serverContainer;
-		$this->l10n = $l10n;
-		$this->initialStateService = $initialStateService;
 		$this->root = $root;
+		$this->initialStateService = $initialStateService;
+		$this->l10n = $l10n;
 		$this->config = $config;
 		$this->urlGenerator = $urlGenerator;
+		$this->userId = $userId;
 	}
 
 	/**
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
-	 *
 	 * @return TemplateResponse
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
 	 */
 	public function webexSingleLinkPage(): TemplateResponse {
 		$webexSdkUrl = 'https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js';
@@ -98,7 +125,10 @@ class PageController extends Controller {
 	 * @NoAdminRequired
 	 * @NoCSRFRequired
 	 *
+	 * @param string|null $additionalScriptUrl
 	 * @return TemplateResponse
+	 * @throws ContainerExceptionInterface
+	 * @throws NotFoundExceptionInterface
 	 */
 	public function singleLinkPage(?string $additionalScriptUrl = null): TemplateResponse {
 		$supportEnabled = $this->appManager->isEnabledForUser('support', $this->userId);
@@ -150,6 +180,8 @@ class PageController extends Controller {
 	 * @NoCSRFRequired
 	 * @PublicPage
 	 *
+	 * @param string $token
+	 * @param string $fileId
 	 * @return TemplateResponse
 	 */
 	public function webexSharePage(string $token, string $fileId): TemplateResponse {
@@ -207,6 +239,9 @@ class PageController extends Controller {
 	 *
 	 * @param string $path
 	 * @return DataResponse
+	 * @throws InvalidPathException
+	 * @throws NoUserException
+	 * @throws NotPermittedException
 	 */
 	public function canShareFile(string $path): DataResponse {
 		$userFolder = $this->root->getUserFolder($this->userId);

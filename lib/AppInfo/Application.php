@@ -28,11 +28,6 @@ use OCP\Security\CSP\AddContentSecurityPolicyEvent;
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'picker';
 
-	/**
-	 * Constructor
-	 *
-	 * @param array $urlParams
-	 */
 	public function __construct(array $urlParams = []) {
 		parent::__construct(self::APP_ID, $urlParams);
 	}
