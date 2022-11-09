@@ -1,0 +1,10 @@
+{ "translations": {
+    "in" : "裡",
+    "Cancel" : "取消",
+    "View only" : "僅檢視",
+    "Edit" : "編輯",
+    "Public link" : "公開連結",
+    "Yes" : "是",
+    "No" : "否"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

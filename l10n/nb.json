@@ -1,0 +1,7 @@
+{ "translations": {
+    "Cancel" : "Avbryt",
+    "View only" : "Kun se",
+    "Edit" : "Rediger",
+    "Public link" : "Offentlig lenke"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

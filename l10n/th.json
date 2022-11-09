@@ -1,0 +1,8 @@
+{ "translations": {
+    "Cancel" : "ยกเลิก",
+    "Edit" : "แก้ไข",
+    "Public link" : "ลิงค์สาธารณะ",
+    "Yes" : "ใช่",
+    "No" : "ไม่"
+},"pluralForm" :"nplurals=1; plural=0;"
+}

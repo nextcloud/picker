@@ -1,0 +1,10 @@
+{ "translations": {
+    "in" : "içinde",
+    "Cancel" : "İptal",
+    "View only" : "Yalnızca görüntüleme",
+    "Edit" : "Düzenle",
+    "Public link" : "Herkese açık bağlantı",
+    "Yes" : "Evet",
+    "No" : "Hayır"
+},"pluralForm" :"nplurals=2; plural=(n > 1);"
+}
