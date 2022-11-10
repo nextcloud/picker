@@ -1,5 +1,7 @@
 { "translations": {
     "Cancel" : "Batal",
-    "Edit" : "Sunting"
+    "Edit" : "Sunting",
+    "Yes" : "Yes",
+    "No" : "No"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

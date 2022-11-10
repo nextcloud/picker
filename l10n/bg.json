@@ -1,0 +1,10 @@
+{ "translations": {
+    "in" : "в",
+    "Cancel" : "Отказ",
+    "View only" : "Само преглед",
+    "Edit" : "Редактиране",
+    "Public link" : "Публична връзка",
+    "Yes" : "Да",
+    "No" : "Не"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

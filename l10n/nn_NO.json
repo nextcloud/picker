@@ -1,5 +1,7 @@
 { "translations": {
     "Cancel" : "Avbryt",
-    "Edit" : "Rediger"
+    "Edit" : "Rediger",
+    "Yes" : "Ja",
+    "No" : "Nei"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

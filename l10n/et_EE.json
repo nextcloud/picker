@@ -1,5 +1,8 @@
 { "translations": {
     "Cancel" : "Loobu",
-    "Public link" : "Avalik link"
+    "Edit" : "Redigeeri",
+    "Public link" : "Avalik link",
+    "Yes" : "Jah",
+    "No" : "Ei"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

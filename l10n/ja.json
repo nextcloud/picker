@@ -2,6 +2,9 @@
     "in" : "内",
     "Cancel" : "キャンセル",
     "View only" : "閲覧のみ",
-    "Public link" : "公開リンク"
+    "Edit" : "編集",
+    "Public link" : "公開リンク",
+    "Yes" : "はい",
+    "No" : "いいえ"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

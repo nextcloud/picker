@@ -4,6 +4,8 @@ OC.L10N.register(
     "Cancel" : "Avbryt",
     "View only" : "Kun se",
     "Edit" : "Rediger",
-    "Public link" : "Offentlig lenke"
+    "Public link" : "Offentlig lenke",
+    "Yes" : "Ja",
+    "No" : "Nei"
 },
 "nplurals=2; plural=(n != 1);");

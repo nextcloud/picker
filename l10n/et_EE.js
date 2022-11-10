@@ -2,6 +2,9 @@ OC.L10N.register(
     "picker",
     {
     "Cancel" : "Loobu",
-    "Public link" : "Avalik link"
+    "Edit" : "Redigeeri",
+    "Public link" : "Avalik link",
+    "Yes" : "Jah",
+    "No" : "Ei"
 },
 "nplurals=2; plural=(n != 1);");

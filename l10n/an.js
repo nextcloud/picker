@@ -1,6 +1,8 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "strika"
+    "Cancel" : "Canzelar",
+    "Yes" : "Si",
+    "No" : "No"
 },
 "nplurals=2; plural=(n != 1);");

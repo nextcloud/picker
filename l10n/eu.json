@@ -1,0 +1,10 @@
+{ "translations": {
+    "in" : "Handiagotu",
+    "Cancel" : "Utzi",
+    "View only" : "Ikusi soilik",
+    "Edit" : "Aldatu",
+    "Public link" : "Esteka publikoa",
+    "Yes" : "Bai",
+    "No" : "Ez"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

@@ -1,4 +1,7 @@
 { "translations": {
-    "Cancel" : "Sefsex"
+    "Cancel" : "Sefsex",
+    "Edit" : "Ẓreg",
+    "Yes" : "Oui",
+    "No" : "Uhu"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -1,4 +1,6 @@
 { "translations": {
-    "Cancel" : "strika"
+    "Cancel" : "Canzelar",
+    "Yes" : "Si",
+    "No" : "No"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

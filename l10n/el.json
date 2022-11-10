@@ -1,0 +1,10 @@
+{ "translations": {
+    "in" : "εντός",
+    "Cancel" : "Ακύρωση",
+    "View only" : "Μόνο προβολή",
+    "Edit" : "Επεξεργασία",
+    "Public link" : "Δημόσιος σύνδεσμος",
+    "Yes" : "Ναι",
+    "No" : "Όχι"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}

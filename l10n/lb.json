@@ -1,5 +1,7 @@
 { "translations": {
     "Cancel" : "Ofbriechen",
-    "Edit" : "Änneren"
+    "Edit" : "Änneren",
+    "Yes" : "Yes",
+    "No" : "No"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

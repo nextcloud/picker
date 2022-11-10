@@ -3,6 +3,9 @@ OC.L10N.register(
     {
     "Cancel" : "Peruuta",
     "View only" : "Vain katselu",
-    "Public link" : "Julkinen linkki"
+    "Edit" : "Muokkaa",
+    "Public link" : "Julkinen linkki",
+    "Yes" : "Kyllä",
+    "No" : "Ei"
 },
 "nplurals=2; plural=(n != 1);");

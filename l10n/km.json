@@ -1,4 +1,7 @@
 { "translations": {
-    "Cancel" : "បោះបង់"
+    "Cancel" : "បោះបង់",
+    "Edit" : "កែប្រែ",
+    "Yes" : "បាទ ឬចាស",
+    "No" : "ទេ"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

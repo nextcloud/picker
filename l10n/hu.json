@@ -2,6 +2,9 @@
     "in" : "itt:",
     "Cancel" : "Mégse",
     "View only" : "Csak megtekintés",
-    "Public link" : "Nyilvános hivatkozás"
+    "Edit" : "Szerkesztés",
+    "Public link" : "Nyilvános hivatkozás",
+    "Yes" : "Igen",
+    "No" : "Nem"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
