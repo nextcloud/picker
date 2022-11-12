@@ -1,10 +1,22 @@
 OC.L10N.register(
     "picker",
     {
+    "Nextcloud support" : "Nextcloud-tuki",
+    "Picker" : "Valitsin",
+    "Pick a file and share it" : "Valitse tiedosto ja jaa se",
     "Cancel" : "Peruuta",
+    "Start collaborating" : "Aloita yhteistyö",
     "View only" : "Vain katselu",
     "Edit" : "Muokkaa",
+    "Would you like to log in?" : "Haluatko kirjautua sisään?",
     "Public link" : "Julkinen linkki",
+    "View the file as a user" : "Katsele tiedostoa käyttäjänä",
+    "Nextcloud picker" : "Nextcloud-valitsin",
+    "Picker link" : "Valitsinlinkki",
+    "You are not allowed to share this file" : "Sinulla ei ole oikeutta jakaa tätä tiedostoa",
+    "Choose a file and start collaborating" : "Valitse tiedosto ja aloita yhteistyö",
+    "Do you want to choose another file?" : "Haluatko valita toisen tiedoston?",
+    "Choose another file?" : "Valitaanko toinen tiedosto?",
     "Yes" : "Kyllä",
     "No" : "Ei"
 },
