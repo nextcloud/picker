@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/eneiluj/picker"
+		"url": "https://github.com/julien-nc/picker"
 	},
 	"keywords": [
 		"picker"
@@ -25,9 +25,9 @@
 	"author": "Julien Veyssier",
 	"license": "AGPL-3.0",
 	"bugs": {
-		"url": "https://github.com/eneiluj/picker/issues"
+		"url": "https://github.com/julien-nc/picker/issues"
 	},
-	"homepage": "https://github.com/eneiluj/picker",
+	"homepage": "https://github.com/julien-nc/picker",
 	"browserslist": [
 		"extends @nextcloud/browserslist-config"
 	],

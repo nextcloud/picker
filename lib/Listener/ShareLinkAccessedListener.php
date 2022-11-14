@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @author Julien Veyssier <eneiluj@posteo.net>
+ * @author Julien Veyssier <julien-nc@posteo.net>
  * @copyright Julien Veyssier 2022
  *
  * @license GNU AGPL version 3 or any later version

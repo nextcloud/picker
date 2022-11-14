@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 1.0.4 – 2022-11-14
+### Added
+- translations
+
+### Fixed
+- fix isEnabledForUser call causing crashes sometimes when used with userId param
+[#3](https://github.com/julien-nc/picker/issues/3) @cbaptista
+
 ## 1.0.3 – 2022-10-20
 ### Changed
 - bump js libs
