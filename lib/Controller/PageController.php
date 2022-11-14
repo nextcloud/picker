@@ -131,7 +131,7 @@ class PageController extends Controller {
 	 * @throws NotFoundExceptionInterface
 	 */
 	public function singleLinkPage(?string $additionalScriptUrl = null): TemplateResponse {
-		$supportEnabled = $this->appManager->isEnabledForUser('support', $this->userId);
+		$supportEnabled = $this->appManager->isEnabledForUser('support');
 		if ($supportEnabled) {
 			/** @var \OCA\Support\Service\SubscriptionService $subscriptionService */
 			$subscriptionService = $this->serverContainer->get(\OCA\Support\Service\SubscriptionService::class);
