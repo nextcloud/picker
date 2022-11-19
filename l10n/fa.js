@@ -2,6 +2,7 @@ OC.L10N.register(
     "picker",
     {
     "Cancel" : "لغو",
+    "View only" : "تنها مشاهده",
     "Edit" : "ویرایش",
     "Public link" : "پیوند عمومی",
     "Yes" : "بله",
