@@ -5,6 +5,8 @@ OC.L10N.register(
     "View only" : "Kun visning",
     "Edit" : "Redigér",
     "Public link" : "Offentligt link",
+    "Do you want to choose another file?" : "Vil du vælge en anden fil?",
+    "Choose another file?" : "Vælg en anden fil?",
     "Yes" : "Ja",
     "No" : "Nej"
 },
