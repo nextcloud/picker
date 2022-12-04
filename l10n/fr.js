@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "in" : "dans",
     "Cancel" : "Annuler",
+    "Start collaborating" : "Commencez à collaborer",
     "View only" : "Afficher seulement",
     "Edit" : "Modifier",
     "Public link" : "Lien public",
