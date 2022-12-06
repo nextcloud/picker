@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "in" : "en",
     "Cancel" : "Cancelar",
+    "View only" : "Só ver",
     "Edit" : "Editar",
     "Public link" : "Ligazón pública",
     "Yes" : "Si",
