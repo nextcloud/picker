@@ -1,9 +1,23 @@
 { "translations": {
+    "This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support." : "Esse recurso requer o Nextcloud Enterprise para instancias com mais de 500 usuários. Por favor contate o suporte Nextcloud.",
+    "Nextcloud support" : "Suporte Nextcloud",
+    "Pick a file and share it" : "Escolha um arquivo e compartilhe",
+    "This app provides a page to pick a file, generate a public link and directly browse it.\nIt can be used to integrate Nextcloud in other apps such as a video call software." : "Este app provê uma página de esolha de arquivo, gera um link público e automaticamente o acessa.\nPode ser usado para integrar o Nextcloud em outros apps como softwares de ligações por vídeo.",
     "in" : "em",
     "Cancel" : "Cancelar",
+    "Start collaborating" : "Começar a colaborar",
     "View only" : "Somente visualização ",
     "Edit" : "Editar",
+    "Would you like to log in?" : "Você gostaria de entrar?",
     "Public link" : "Link público",
+    "View the file as a user" : "Ver o arquivo como um usuário",
+    "Error while editing the shared access" : "Erro enquanto edita o acesso compartilhado",
+    "Error while creating the shared access" : "Erro enquanto cria o acesso compartilhado",
+    "You are not allowed to share this file" : "Você não tem permissão para compartilhar este arquivo",
+    "Error while checking if you are allowed to share this file" : "Erro na checagem se você tem permissão para compartilhar este arquivo",
+    "Choose a file and start collaborating" : "Escolha o arquivo e comece a colaborar",
+    "Do you want to choose another file?" : "Você quer escolher outro arquivo?",
+    "Choose another file?" : "Escolher outro arquivo?",
     "Yes" : "Sim",
     "No" : "Não"
 },"pluralForm" :"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
