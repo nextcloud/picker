@@ -11,6 +11,7 @@ OC.L10N.register(
     "Start collaborating" : "Közös muinka kezdése",
     "View only" : "Csak megtekintés",
     "Edit" : "Szerkesztés",
+    "plop" : "plop",
     "Would you like to log in?" : "Be szeretne jelentkezni?",
     "Public link" : "Nyilvános hivatkozás",
     "View the file as a user" : "Fájl megtekintése felhasználóként",
