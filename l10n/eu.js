@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "Nextcloud support" : "Nextcloud laguntza",
     "in" : "Handiagotu",
     "Cancel" : "Utzi",
     "Start collaborating" : "Hasi kolaboratzen",
