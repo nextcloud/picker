@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Cancel" : "ยกเลิก",
     "Edit" : "แก้ไข",
-    "Public link" : "ลิงค์สาธารณะ",
+    "Public link" : "ลิงก์สาธารณะ",
     "Yes" : "ใช่",
     "No" : "ไม่"
 },
