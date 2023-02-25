@@ -2,6 +2,7 @@ OC.L10N.register(
     "picker",
     {
     "Cancel" : "Откажи",
+    "View only" : "Само преглед",
     "Edit" : "Измени",
     "Public link" : "Јавна веза",
     "Yes" : "Да",
