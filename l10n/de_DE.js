@@ -5,7 +5,7 @@ OC.L10N.register(
     "Nextcloud support" : "Nextcloud-Unterstützung",
     "Picker" : "Picker",
     "Pick a file and share it" : "Wählen Sie eine Datei aus und teilen Sie diese",
-    "This app provides a page to pick a file, generate a public link and directly browse it.\nIt can be used to integrate Nextcloud in other apps such as a video call software." : "Diese App bietet eine Seite, auf der Sie eine Datei auswählen, einen öffentlichen Link generieren und direkt durchsuchen können. Es kann verwendet werden, um Nextcloud in andere Apps wie eine Videoanrufsoftware zu integrieren.",
+    "This app provides a page to pick a file, generate a public link and directly browse it.\nIt can be used to integrate Nextcloud in other apps such as a video call software." : "Diese App bietet eine Seite, auf der Sie eine Datei auswählen, einen öffentlichen Link generieren und direkt durchsuchen können. Sie kann benutzt werden, um Nextcloud in andere Apps wie eine z.B. eine Videoanrufsoftware zu integrieren.",
     "in" : "in",
     "Cancel" : "Abbrechen",
     "Start collaborating" : "Mit der Zusammenarbeit beginnen",
