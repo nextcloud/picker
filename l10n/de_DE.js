@@ -20,7 +20,7 @@ OC.L10N.register(
     "Picker link" : "Picker-Link",
     "Error while creating the shared access" : "Fehler beim Erstellen des gemeinsamen Zugriffs",
     "You are not allowed to share this file" : "Sie haben nicht die Berechtigung, diese Datei zu teilen",
-    "Error while checking if you are allowed to share this file" : "Fehler bei der Prüfung ob Sie berechtigt sind, diese Datei zu teilen",
+    "Error while checking if you are allowed to share this file" : "Fehler bei der Prüfung, ob Sie berechtigt sind, diese Datei zu teilen",
     "Choose a file and start collaborating" : "Eine Datei auswählen und mit der Zusammenarbeit beginnen",
     "Do you want to choose another file?" : "Möchten Sie eine andere Datei auswählen?",
     "Choose another file?" : "Andere Datei wählen?",
