@@ -1,6 +1,7 @@
 { "translations": {
     "Cancel" : "Membatalkan",
     "Edit" : "Sunting",
+    "Public link" : "Tautan publik",
     "Yes" : "Ya",
     "No" : "Tidak"
 },"pluralForm" :"nplurals=1; plural=0;"

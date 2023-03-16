@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "Cancel" : "Membatalkan",
     "Edit" : "Sunting",
+    "Public link" : "Tautan publik",
     "Yes" : "Ya",
     "No" : "Tidak"
 },
