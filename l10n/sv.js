@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "Picker" : "Väljare",
     "Cancel" : "Avbryt",
     "View only" : "Skrivskyddat läge",
     "Edit" : "Ändra",
