@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "Public link" : "Enllaz públicu",
     "Yes" : "Sí",
     "No" : "Non"
 },
