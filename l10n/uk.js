@@ -1,10 +1,13 @@
 OC.L10N.register(
     "picker",
     {
+    "Picker" : "Вибір",
     "Cancel" : "Скасувати",
     "View only" : "Лише перегляд",
     "Edit" : "Редагувати",
     "Public link" : "Публічне посилання",
+    "Nextcloud picker" : "Вибір у Nextcloud",
+    "Picker link" : "Посилання вибору",
     "Yes" : "Так",
     "No" : "Ні"
 },
