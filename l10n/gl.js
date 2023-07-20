@@ -1,7 +1,7 @@
 OC.L10N.register(
     "picker",
     {
-    "This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support." : "Esta función necesita Nextcloud Enterprise para instancias con máis de 500 usuarios. Póñase en contacto co servizo de asistencia de Nextcloud.",
+    "This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support." : "Esta función precisa Nextcloud Enterprise para instancias con máis de 500 usuarios. Póñase en contacto co servizo de asistencia de Nextcloud.",
     "Nextcloud support" : "Servizo de asistencia de Nextcloud",
     "Picker" : "Selector",
     "Pick a file and share it" : "Escolla un ficheiro e compártao",
