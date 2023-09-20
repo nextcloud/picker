@@ -3,6 +3,7 @@ OC.L10N.register(
     {
     "in" : "во",
     "Cancel" : "Откажи",
+    "View only" : "Само за гледање",
     "Edit" : "Уреди",
     "Public link" : "Јавен линк",
     "Yes" : "Да",
