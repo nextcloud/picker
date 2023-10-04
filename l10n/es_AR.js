@@ -2,6 +2,7 @@ OC.L10N.register(
     "picker",
     {
     "Cancel" : "Cancelar",
+    "View only" : "Solo ver",
     "Edit" : "Editar",
     "Yes" : "Si",
     "No" : "No"
