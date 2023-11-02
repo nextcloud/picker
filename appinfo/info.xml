@@ -5,7 +5,7 @@
     <summary>Pick a file and share it</summary>
     <description><![CDATA[This app provides a page to pick a file, generate a public link and directly browse it.
 It can be used to integrate Nextcloud in other apps such as a video call software.]]></description>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <licence>agpl</licence>
     <author>Julien Veyssier</author>
     <namespace>Picker</namespace>
