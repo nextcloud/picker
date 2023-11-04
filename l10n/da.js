@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "Picker" : "Vælger",
     "Cancel" : "Annuller",
     "View only" : "Kun visning",
     "Edit" : "Redigér",
