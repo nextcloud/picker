@@ -11,8 +11,6 @@ namespace OCA\Picker\AppInfo;
 
 use OCA\Files_Sharing\Event\BeforeTemplateRenderedEvent;
 use OCA\Picker\Listener\CSPListener;
-use OCA\Picker\Listener\ShareLinkAccessedListener;
-//use OCA\Files_Sharing\Event\ShareLinkAccessedEvent;
 use OCA\Picker\Listener\PublicShareTemplateLoader;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
@@ -34,8 +32,6 @@ class Application extends App implements IBootstrap {
 
 	public function register(IRegistrationContext $context): void {
 		$context->registerEventListener(AddContentSecurityPolicyEvent::class, CSPListener::class);
-		// both ShareLinkAccessedEvent and BeforeTemplateRenderedEvent events can be listened to load our CSS
-		// $context->registerEventListener(ShareLinkAccessedEvent::class, ShareLinkAccessedListener::class);
 		$context->registerEventListener(BeforeTemplateRenderedEvent::class, PublicShareTemplateLoader::class);
 	}
 
