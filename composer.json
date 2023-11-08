@@ -10,5 +10,8 @@
 	"minimum-stability": "stable",
 	"require-dev": {
 		"nextcloud/ocp": "dev-stable24"
+	},
+	"scripts": {
+		"lint": "find . -name \\*.php -not -path './vendor/*' -not -path './build/*' -print0 | xargs -0 -n1 php -l"
 	}
 }
