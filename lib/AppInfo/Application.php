@@ -13,9 +13,9 @@ use OCA\Files_Sharing\Event\BeforeTemplateRenderedEvent;
 use OCA\Picker\Listener\CSPListener;
 use OCA\Picker\Listener\PublicShareTemplateLoader;
 use OCP\AppFramework\App;
-use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
+use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\Security\CSP\AddContentSecurityPolicyEvent;
 
 /**
@@ -38,4 +38,3 @@ class Application extends App implements IBootstrap {
 	public function boot(IBootContext $context): void {
 	}
 }
-

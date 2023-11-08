@@ -13,9 +13,17 @@ namespace OCA\Picker\Controller;
 
 use Exception;
 use OC\User\NoUserException;
+use OCA\Picker\AppInfo\Application;
+use OCA\Picker\Service\ImageService;
 use OCP\App\IAppManager;
+use OCP\AppFramework\Controller;
 use OCP\AppFramework\Http;
+use OCP\AppFramework\Http\ContentSecurityPolicy;
+use OCP\AppFramework\Http\DataDownloadResponse;
+use OCP\AppFramework\Http\DataResponse;
+use OCP\AppFramework\Http\RedirectResponse;
 use OCP\AppFramework\Http\Response;
+use OCP\AppFramework\Http\TemplateResponse;
 use OCP\AppFramework\Services\IInitialState;
 use OCP\Constants;
 use OCP\Files\InvalidPathException;
@@ -24,22 +32,14 @@ use OCP\Files\NotFoundException;
 use OCP\Files\NotPermittedException;
 use OCP\IConfig;
 use OCP\IL10N;
+use OCP\IRequest;
 use OCP\IServerContainer;
 use OCP\IURLGenerator;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
-use Throwable;
-use OCA\Picker\Service\ImageService;
-use OCP\AppFramework\Controller;
-use OCP\AppFramework\Http\ContentSecurityPolicy;
-use OCP\AppFramework\Http\DataDownloadResponse;
-use OCP\AppFramework\Http\DataResponse;
-use OCP\AppFramework\Http\RedirectResponse;
-use OCP\AppFramework\Http\TemplateResponse;
-use OCP\IRequest;
 
-use OCA\Picker\AppInfo\Application;
+use Throwable;
 
 class PageController extends Controller {
 
@@ -85,17 +85,17 @@ class PageController extends Controller {
 	private $userId;
 
 	public function __construct(string $appName,
-								IRequest $request,
-								ImageService $imageService,
-								LoggerInterface $logger,
-								IAppManager $appManager,
-								IServerContainer $serverContainer,
-								IRootFolder $root,
-								IInitialState $initialStateService,
-								IL10N $l10n,
-								IConfig $config,
-								IURLGenerator $urlGenerator,
-								?string $userId) {
+		IRequest $request,
+		ImageService $imageService,
+		LoggerInterface $logger,
+		IAppManager $appManager,
+		IServerContainer $serverContainer,
+		IRootFolder $root,
+		IInitialState $initialStateService,
+		IL10N $l10n,
+		IConfig $config,
+		IURLGenerator $urlGenerator,
+		?string $userId) {
 		parent::__construct($appName, $request);
 		$this->imageService = $imageService;
 		$this->logger = $logger;

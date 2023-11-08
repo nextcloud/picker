@@ -19,7 +19,6 @@ use OCP\Files\NotFoundException;
 use OCP\IPreview;
 use Psr\Log\LoggerInterface;
 
-
 class ImageService {
 
 	/**
@@ -39,10 +38,10 @@ class ImageService {
 	 */
 	private $mimeTypeDetector;
 
-	public function __construct (IRootFolder $root,
-								LoggerInterface $logger,
-								IPreview $previewManager,
-								IMimeTypeDetector $mimeTypeDetector) {
+	public function __construct(IRootFolder $root,
+		LoggerInterface $logger,
+		IPreview $previewManager,
+		IMimeTypeDetector $mimeTypeDetector) {
 		$this->root = $root;
 		$this->logger = $logger;
 		$this->previewManager = $previewManager;
