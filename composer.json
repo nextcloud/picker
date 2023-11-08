@@ -1,0 +1,12 @@
+{
+	"name": "nextcloud/picker",
+	"type": "project",
+	"license": "APL-3.0-or-later",
+	"autoload": {
+		"psr-4": {
+			"OCA\\Picker\\": "lib/"
+		}
+	},
+	"minimum-stability": "stable",
+	"require": {}
+}
