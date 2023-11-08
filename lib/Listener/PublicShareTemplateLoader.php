@@ -31,7 +31,6 @@ use OCA\Picker\AppInfo\Application;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\Files\FileInfo;
-use OCP\IConfig;
 use OCP\Util;
 
 /**
@@ -40,11 +39,6 @@ use OCP\Util;
  * The additional scripts modify the page in the browser to inject the Talk UI as needed.
  */
 class PublicShareTemplateLoader implements IEventListener {
-
-	public function __construct(IConfig $serverConfig) {
-		$this->serverConfig = $serverConfig;
-	}
-
 	/**
 	 * @param Event $event
 	 */
