@@ -9,3 +9,4 @@
 
 /vendor/
 .php-cs-fixer.cache
+tests/.phpunit.cache/
