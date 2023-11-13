@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\OpenAi\Tests;
+namespace OCA\Picker\Tests;
 
 use OCA\Picker\AppInfo\Application;
 use PHPUnit\Framework\TestCase;
