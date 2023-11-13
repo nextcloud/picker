@@ -32,7 +32,8 @@ use OCP\IRequest;
 use OCP\Security\CSP\AddContentSecurityPolicyEvent;
 
 class CSPListener implements IEventListener {
-	private $request;
+	protected IRequest $request;
+	protected IConfig $config;
 
 	public function __construct(IRequest $request,
 		IConfig $config
