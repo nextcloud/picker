@@ -2,6 +2,7 @@ OC.L10N.register(
     "picker",
     {
     "Cancel" : "Membatalkan",
+    "View only" : "Hanya lihat",
     "Edit" : "Sunting",
     "Public link" : "Tautan publik",
     "Yes" : "Ya",
