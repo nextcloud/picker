@@ -1,0 +1,9 @@
+{ "translations": {
+    "Cancel" : "Cancel",
+    "View only" : "View only",
+    "Edit" : "Edit",
+    "Public link" : "Public link",
+    "Yes" : "Yes",
+    "No" : "No"
+},"pluralForm" :"nplurals=2; plural=(n!=1);"
+}
