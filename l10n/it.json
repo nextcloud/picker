@@ -6,7 +6,7 @@
     "Edit" : "Modifica",
     "plop" : "plop",
     "Public link" : "Collegamento pubblico",
-    "Yes" : "Si",
+    "Yes" : "Sì",
     "No" : "No"
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
