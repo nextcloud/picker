@@ -2,6 +2,7 @@ OC.L10N.register(
     "picker",
     {
     "Cancel" : "Encaboxar",
+    "View only" : "Ver namás",
     "Edit" : "Editar",
     "Public link" : "Enllaz públicu",
     "Yes" : "Sí",
