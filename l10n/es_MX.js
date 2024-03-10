@@ -2,6 +2,7 @@ OC.L10N.register(
     "picker",
     {
     "Cancel" : "Cancelar",
+    "View only" : "Sólo lectura",
     "Edit" : "Editar",
     "Public link" : "Liga pública",
     "Yes" : "Sí",
