@@ -34,6 +34,9 @@
 						<PencilIcon v-else-if="p.id === 'write'"
 							class="perm-icon"
 							:size="20" />
+						<InternalIcon v-else-if="p.id === 'internal'"
+							class="perm-icon"
+							:size="20" />
 						<span class="perm-title">
 							{{ p.label }}
 						</span>
@@ -44,12 +47,20 @@
 						{{ t('picker', 'Cancel') }}
 					</NcButton>
 					<NcButton type="primary"
-						@click="onValidate">
+						@click="onOpen">
 						<template #icon>
 							<CheckIcon
 								:size="20" />
 						</template>
-						{{ t('picker', 'Start collaborating') }}
+						{{ t('picker', 'Open file') }}
+					</NcButton>
+					<NcButton type="primary"
+						@click="onCopy">
+						<template #icon>
+							<CheckIcon
+								:size="20" />
+						</template>
+						{{ t('picker', 'Copy link and close window') }}
 					</NcButton>
 				</div>
 			</div>
@@ -61,6 +72,7 @@
 import CheckIcon from 'vue-material-design-icons/Check.vue'
 import PencilIcon from 'vue-material-design-icons/Pencil.vue'
 import EyeIcon from 'vue-material-design-icons/Eye.vue'
+import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
 import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
 import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
 import { generateUrl } from '@nextcloud/router'
@@ -74,6 +86,10 @@ const permissions = [
 	{
 		id: 'write',
 		label: t('picker', 'Edit'),
+	},
+	{
+		id: 'internal',
+		label: t('picker', 'Internal link'),
 	},
 	/*
 	{
@@ -92,6 +108,7 @@ export default {
 		CheckIcon,
 		PencilIcon,
 		EyeIcon,
+		InternalIcon,
 	},
 
 	props: {
@@ -139,9 +156,13 @@ export default {
 			this.open = false
 			this.$emit('closed')
 		},
-		onValidate() {
+		onOpen() {
 			this.open = false
-			this.$emit('validate', this.filePath, this.selectedPermission)
+			this.$emit('open', this.filePath, this.selectedPermission)
+		},
+		onCopy() {
+			this.open = false
+			this.$emit('copy', this.filePath, this.selectedPermission)
 		},
 	},
 }

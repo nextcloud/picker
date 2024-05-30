@@ -57,3 +57,12 @@ If the file file you selected is supported by Nextcloud Text, Nextcloud Office o
 you will be able to collaborate on this file with all the call participants.
 
 You can then press "Close for all" if you want to hide the app for all participants.
+
+## Copy link and close window
+
+This button will copy the desired link and might close the window if the window has been open with a js pickerWindow button like this 
+```
+      newButton.onclick = () => {
+        pickerWindow = window.open('/nextcloud/apps/picker/single-link', 'pickerWindow', 'popup');
+      };
+```

@@ -42,7 +42,9 @@
     "@nextcloud/router": "^2.0.0",
     "@nextcloud/vue": "^7.0.0",
     "vue": "^2.6.14",
-    "vue-material-design-icons": "^5.0.0"
+    "vue-material-design-icons": "^5.0.0",
+    "lodash": "^4.17.21",
+    "webdav": "4.11.3"
   },
   "engines": {
     "node": "^20.0.0",
