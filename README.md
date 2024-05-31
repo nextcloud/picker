@@ -60,9 +60,36 @@ You can then press "Close for all" if you want to hide the app for all participa
 
 ## Copy link and close window
 
-This button will copy the desired link and might close the window if the window has been open with a js pickerWindow button like this 
+This button will copy the desired link and can close the picker app window if it has been opened with a js `pickerWindow` button like 
 ```
-      newButton.onclick = () => {
-        pickerWindow = window.open('/nextcloud/apps/picker/single-link', 'pickerWindow', 'popup');
-      };
+newButton.onclick = () => {
+  pickerWindow = window.open('/nextcloud/apps/picker/single-link', 'pickerWindow', 'popup');
+};
+```
+or can close the iframe if it has been opened with a js button similar to
+```
+newButton.onclick = () => {
+  // Create the iframe element
+  var pickerFrame = document.createElement('iframe';
+  pickerFrame.id = 'pickerFrame';
+  pickerFrame.height = '800'; // set the height
+  pickerFrame.width = 600'; // set the width
+  pickerFrame.src = '/nextcloud/apps/picker/single-link'; // Set the source URL
+  pickerFrame.style.border = 'none'; // Remove the default border
+  // Set the iframe styles to position it in the middle and on top
+  pickerFrame.style.position = 'fixed';
+  pickerFrame.style.top = '50%';
+  pickerFrame.style.left = '50%';
+  pickerFrame.style.transform = 'translate(-50%, -50%)';
+  pickerFrame.style.zIndex = '9999'; // Adjust this value as needed
+  // Append the iframe to the document body
+  document.body.appendChild(pickerFrame);
+};
+```
+and the opener has also the following `closePickerIframe` function (called by the iframe) :
+```
+function closePickerIframe() {
+  const pickerFrame = document.getElementById('pickerFrame');
+  document.body.removeChild(pickerFrame); // Remove the iframe
+}
 ```

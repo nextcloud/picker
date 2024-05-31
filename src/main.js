@@ -98,7 +98,11 @@ function editShare(shareId, permission, action) {
 			console.debug('[picker main] after edit, there is NO webex app => copyShareLink')
 			navigator.clipboard.writeText(publicLinkUrl).then(() => {
 				console.debug('Link copied to clipboard successfully')
-				window.opener.window.pickerWindow.close()
+				if (window.opener) {
+					window.opener.window.pickerWindow.close()
+				} else {
+					window.parent.closePickerIframe()
+				}
 			})
 		}
 	}).catch((error) => {
@@ -147,7 +151,11 @@ function getInternalLink(filePath, action) {
 			console.debug('[picker main] after getting Internal Link, there is NO webex app => copyInternalLinkURL')
 			navigator.clipboard.writeText(internalLinkURL).then(() => {
 				console.debug('Internal Link copied to clipboard successfully')
-				window.opener.window.pickerWindow.close()
+				if (window.opener) {
+					window.opener.window.pickerWindow.close()
+				} else {
+					window.parent.closePickerIframe()
+				}
 			})
 		}
 	}).catch(error => {
