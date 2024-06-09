@@ -63,7 +63,7 @@ You can then press "Close for all" if you want to hide the app for all participa
 This button will copy the desired link and can close the picker app window if it has been opened with a js `pickerWindow` button like 
 ```
 newButton.onclick = () => {
-  pickerWindow = window.open('/nextcloud/apps/picker/single-link', 'pickerWindow', 'popup');
+  pickerWindow = window.open('https://your.nextcloud.org/index.php/apps/picker/single-link', 'pickerWindow', 'popup');
 };
 ```
 or can close the iframe if it has been opened with a js button similar to
@@ -74,7 +74,7 @@ newButton.onclick = () => {
   pickerFrame.id = 'pickerFrame';
   pickerFrame.height = '800'; // set the height
   pickerFrame.width = 600'; // set the width
-  pickerFrame.src = '/nextcloud/apps/picker/single-link'; // Set the source URL
+  pickerFrame.src = 'https://your.nextcloud.org/index.php/apps/picker/single-link'; // Set the source URL
   pickerFrame.style.border = 'none'; // Remove the default border
   // Set the iframe styles to position it in the middle and on top
   pickerFrame.style.position = 'fixed';
