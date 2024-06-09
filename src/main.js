@@ -154,6 +154,7 @@ function getInternalLink(filePath, action) {
 				if (window.opener) {
 					window.opener.window.pickerWindow.close()
 				} else {
+					openFilePicker()
 					window.parent.closePickerIframe()
 				}
 			})
