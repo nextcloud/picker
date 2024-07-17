@@ -102,11 +102,6 @@ function onFileSelected(targetPath) {
 function openFilePicker() {
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
-		.addButton({
-			label: 'Choose file',
-			callback: (file) => console.log('Choose', file),
-			type: 'primary',
-		})
 		.setMimeTypeFilter(null)
 		.allowDirectories(true)
 		.startAt(lastPath)
