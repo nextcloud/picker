@@ -10,7 +10,7 @@ import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
 let permVue
-let lastPath = null
+let lastPath = ''
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
@@ -105,8 +105,8 @@ function openFilePicker() {
 		.setMultiSelect(false)
 		// .setMimeTypeFilter(null)
 		.allowDirectories(true)
-		// .startAt(lastPath)
-		// .setType(5)
+		.startAt(lastPath)
+		.setType(5)
 		.addButton({
 			label: 'Choose this file',
 			callback: (targetPath) => onFileSelected(targetPath),
