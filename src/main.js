@@ -103,7 +103,7 @@ function openFilePicker() {
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
 		.addButton({
-			label: t('picker', 'Choose file'),
+			label: 'Choose file',
 			callback: (file) => console.log('Choose', file),
 			type: 'primary',
 		})
