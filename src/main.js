@@ -107,7 +107,7 @@ function openFilePicker() {
 		.startAt(lastPath)
 		.setType(5)
 		.addButton({
-			label: 'Choose file',
+			label: 'Choose this file',
 			callback: (targetPath) => onFileSelected(targetPath),
 			type: 'primary',
 		})
