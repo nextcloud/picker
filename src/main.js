@@ -100,20 +100,23 @@ function onFileSelected(targetPath) {
 }
 
 function openFilePicker() {
+	console.debug('Initializing file picker...')
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
-		.setMimeTypeFilter(null)
+		// .setMimeTypeFilter(null)
 		.allowDirectories(true)
-		.startAt(lastPath)
-		.setType(5)
+		// .startAt(lastPath)
+		// .setType(5)
 		.addButton({
 			label: 'Choose this file',
 			callback: (targetPath) => onFileSelected(targetPath),
 			type: 'primary',
 		})
 		.build()
+	console.debug('File picker built successfully')
+	console.debug('Attempting to display file picker...')
 	filePicker.pick().then((targetPath) => {
-		console.log('File picked:', targetPath)
+		console.debug('File picked:', targetPath)
 	}).catch((error) => {
 		console.error('Error selecting file:', error)
 	})
