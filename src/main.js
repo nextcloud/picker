@@ -102,14 +102,12 @@ function onFileSelected(targetPath) {
 function openFilePicker() {
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
-		.setModal(true)
 		.addButton({
-			label: node && !this.multiSelect ? t('core', 'Choose {file}', { file: node }) : t('core', 'Choose'),
+			label: t('picker', 'Choose file'),
 			callback: (file) => console.log('Choose', file),
 			type: 'primary',
 		})
 		.setMimeTypeFilter(null)
-		.setCustomFolderMenuEntries(undefined)
 		.allowDirectories(true)
 		.startAt(lastPath)
 		.build()
