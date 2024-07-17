@@ -112,11 +112,11 @@ function openFilePicker() {
 			type: 'primary',
 		})
 		.build()
-		.pick().then((targetPath) => {
-			console.log('File picked:', targetPath)
-		}).catch((error) => {
-			console.error('Error selecting file:', error)
-		})
+	filePicker.pick().then((targetPath) => {
+		console.log('File picked:', targetPath)
+	}).catch((error) => {
+		console.error('Error selecting file:', error)
+	})
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
