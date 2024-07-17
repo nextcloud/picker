@@ -4,7 +4,7 @@ import PermissionsModal from './PermissionsModal.vue'
 
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
-import { showError } from '@nextcloud/dialogs'
+import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 import '../css/main.scss'
@@ -100,13 +100,24 @@ function onFileSelected(targetPath) {
 }
 
 function openFilePicker() {
-	OC.dialogs.filepicker(
-		t('picker', 'Choose a file and start collaborating'),
-		(targetPath) => {
-			onFileSelected(targetPath)
-		},
-		false, null, true, undefined, lastPath
-	)
+	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
+		.setMultiSelect(false)
+		.setModal(true)
+		.addButton({
+			label: node && !this.multiSelect ? t('core', 'Choose {file}', { file: node }) : t('core', 'Choose'),
+			callback: (file) => console.log('Choose', file),
+			type: 'primary',
+		})
+		.setMimeTypeFilter(null)
+		.setCustomFolderMenuEntries(undefined)
+		.allowDirectories(true)
+		.startAt(lastPath)
+		.build()
+	filePicker.pick().then((targetPath) => {
+		onFileSelected(targetPath)
+	}).catch((error) => {
+		console.error('Error selecting file:', error)
+	})
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
