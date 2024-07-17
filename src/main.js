@@ -108,7 +108,7 @@ function openFilePicker() {
 		.setType(5)
 		.addButton({
 			label: 'Choose file',
-			callback: (file) => console.log('Choose', file),
+			callback: (file) => console.debug('Choose', file),
 			type: 'primary',
 		})
 		.build()
