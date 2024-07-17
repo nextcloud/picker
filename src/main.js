@@ -108,15 +108,15 @@ function openFilePicker() {
 		.setType(5)
 		.addButton({
 			label: 'Choose file',
-			callback: (file) => console.debug('Choose', file),
+			callback: (targetPath) => onFileSelected(targetPath),
 			type: 'primary',
 		})
 		.build()
-	filePicker.pick().then((targetPath) => {
-		onFileSelected(targetPath)
-	}).catch((error) => {
-		console.error('Error selecting file:', error)
-	})
+		.pick().then((targetPath) => {
+			console.log('File picked:', targetPath)
+		}).catch((error) => {
+			console.error('Error selecting file:', error)
+		})
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
