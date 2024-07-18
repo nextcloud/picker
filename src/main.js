@@ -105,12 +105,12 @@ function openFilePicker() {
 		.setMultiSelect(false)
 		// .setMimeTypeFilter(null)
 		.allowDirectories(true)
-		.startAt(lastPath)
-		.setType(5)
-		.addButton({
-			label: 'Choose this file',
-			callback: (targetPath) => onFileSelected(targetPath),
-			type: 'primary',
+		// .startAt(lastPath)
+		// .setType(5)
+		// .addButton({
+			// label: 'Choose this file',
+			// callback: (targetPath) => onFileSelected(targetPath),
+			// type: 'primary',
 		})
 		.build()
 	console.debug('File picker built successfully')
