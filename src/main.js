@@ -111,7 +111,7 @@ function openFilePicker() {
 			// label: 'Choose this file',
 			// callback: (targetPath) => onFileSelected(targetPath),
 			// type: 'primary',
-		})
+		// })
 		.build()
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
