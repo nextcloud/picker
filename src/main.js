@@ -10,7 +10,7 @@ import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
 let permVue
-let lastPath = ''
+// let lastPath = ''
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
@@ -88,7 +88,7 @@ function onFileSelected(targetPath) {
 			// createPublicLink(targetPath)
 			permVue.setFilePath(targetPath)
 			permVue.setOpen(true)
-			lastPath = dirname(targetPath)
+			const lastPath = dirname(targetPath)
 		} else {
 			showError(t('picker', 'You are not allowed to share this file'))
 			setTimeout(openFilePicker, 500)
