@@ -3,7 +3,7 @@ import './bootstrap.js'
 import PermissionsModal from './PermissionsModal.vue'
 
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
-import { dirname } from '@nextcloud/paths'
+// import { dirname } from '@nextcloud/paths'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
