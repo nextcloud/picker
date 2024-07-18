@@ -88,7 +88,7 @@ function onFileSelected(targetPath) {
 			// createPublicLink(targetPath)
 			permVue.setFilePath(targetPath)
 			permVue.setOpen(true)
-			const lastPath = dirname(targetPath)
+			// lastPath = dirname(targetPath)
 		} else {
 			showError(t('picker', 'You are not allowed to share this file'))
 			setTimeout(openFilePicker, 500)
@@ -107,16 +107,18 @@ function openFilePicker() {
 		.allowDirectories(true)
 		// .startAt(lastPath)
 		// .setType(5)
+		// .setType(FilePickerType.Choose)
 		// .addButton({
-			// label: 'Choose this file',
-			// callback: (targetPath) => onFileSelected(targetPath),
-			// type: 'primary',
+		// label: 'Choose this file',
+		// callback: (targetPath) => onFileSelected(targetPath),
+		// type: 'primary',
 		// })
 		.build()
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
 	filePicker.pick().then((targetPath) => {
 		console.debug('File picked:', targetPath)
+		onFileSelected(targetPath)
 	}).catch((error) => {
 		console.error('Error selecting file:', error)
 	})
