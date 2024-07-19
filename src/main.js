@@ -5,9 +5,9 @@ import PermissionsModal from './PermissionsModal.vue'
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
+import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
-import '@nextcloud/dialogs/style.css'
 import '../css/main.scss'
 
 let permVue
