@@ -3,14 +3,14 @@ import './bootstrap.js'
 import PermissionsModal from './PermissionsModal.vue'
 
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
-// import { dirname } from '@nextcloud/paths'
+import { dirname } from '@nextcloud/paths'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
 let permVue
-// let lastPath = ''
+let lastPath = '/'
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
@@ -88,7 +88,7 @@ function onFileSelected(targetPath) {
 			// createPublicLink(targetPath)
 			permVue.setFilePath(targetPath)
 			permVue.setOpen(true)
-			// lastPath = dirname(targetPath)
+			lastPath = dirname(targetPath)
 		} else {
 			showError(t('picker', 'You are not allowed to share this file'))
 			setTimeout(openFilePicker, 500)
@@ -105,7 +105,7 @@ function openFilePicker() {
 		.setMultiSelect(false)
 		// .setMimeTypeFilter(null)
 		.allowDirectories(true)
-		// .startAt(lastPath)
+		.startAt(lastPath)
 		.setType(1)
 		// .addButton({
 		// label: 'Choose this file',
