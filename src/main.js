@@ -7,6 +7,7 @@ import { dirname } from '@nextcloud/paths'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
+import '@nextcloud/dialogs/style.css'
 import '../css/main.scss'
 
 let permVue
