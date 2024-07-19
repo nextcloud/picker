@@ -107,7 +107,7 @@ function openFilePicker() {
 		.allowDirectories(true)
 		// .startAt(lastPath)
 		// .setType(5)
-		// .setType(FilePickerType.Choose)
+		.setType(FilePickerType.Choose)
 		// .addButton({
 		// label: 'Choose this file',
 		// callback: (targetPath) => onFileSelected(targetPath),
