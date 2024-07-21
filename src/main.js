@@ -123,11 +123,11 @@ function openFilePicker() {
 		.build()
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
-	filePicker.pick().then((targetPath) => {
-		onFileSelected(targetPath)
-	}).catch((error) => {
-		console.error('Error selecting file:', error)
-	})
+	filePicker.pick(
+		(targetPath) => {
+			onFileSelected(targetPath)
+		}
+	)
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
