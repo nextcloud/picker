@@ -123,7 +123,6 @@ function openFilePicker() {
 	console.debug('Attempting to display file picker...')
 	filePicker.pick().then((targetPath) => {
 		console.debug('File picked:', targetPath)
-		onFileSelected(targetPath)
 	}).catch((error) => {
 		console.error('Error selecting file:', error)
 	})
