@@ -11,7 +11,7 @@ import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
 let permVue
-let lastPath = null
+let lastPath = ''
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
