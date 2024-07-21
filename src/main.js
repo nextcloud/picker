@@ -4,7 +4,7 @@ import PermissionsModal from './PermissionsModal.vue'
 
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
-import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
+import { showError, FilePickerType, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
@@ -107,19 +107,19 @@ function openFilePicker() {
 		// .setMimeTypeFilter(null)
 		.allowDirectories(true)
 		.startAt(lastPath)
-		.setType(5)
-		.addButton({
-			label: 'Choose this file',
-			callback: (targetPath) => {
-				console.debug('File picked:', targetPath)
-			},
-			type: 'primary',
-		})
-		.addButton({
-			label: 'Cancel',
-			callback: (targetPath) => console.debug('Cancel button', targetPath),
-			type: 'secondary',
-		})
+		.setType(FilePickerType.Choose)
+		// .addButton({
+		// label: 'Choose this file',
+		// callback: (targetPath) => {
+		// console.debug('File picked:', targetPath)
+		// },
+		// type: 'primary',
+		// })
+		// .addButton({
+		// label: 'Cancel',
+		// callback: (targetPath) => console.debug('Cancel button', targetPath),
+		// type: 'secondary',
+		//})
 		.build()
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
