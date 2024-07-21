@@ -119,7 +119,7 @@ function openFilePicker() {
 		// label: 'Cancel',
 		// callback: (targetPath) => console.debug('Cancel button', targetPath),
 		// type: 'secondary',
-		//})
+		// })
 		.build()
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
