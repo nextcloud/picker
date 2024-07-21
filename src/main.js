@@ -108,11 +108,16 @@ function openFilePicker() {
 		.allowDirectories(true)
 		.startAt(lastPath)
 		// .setType(5)
-		// .addButton({
-		// label: 'Choose this file',
-		// callback: (targetPath) => onFileSelected(targetPath),
-		// type: 'primary',
-		// })
+		.addButton({
+			label: 'Choose this file',
+			callback: (targetPath) => onFileSelected(targetPath),
+			type: 'primary',
+			})
+		.addButton({
+			label: 'Choose this other file',
+			callback: (targetPath) => onFileSelected(targetPath),
+			type: 'primary',
+			})
 		.build()
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
