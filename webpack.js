@@ -15,7 +15,7 @@ webpackConfig.stats = {
 const appId = 'picker'
 webpackConfig.entry = {
 	main: { import: path.join(__dirname, 'src', 'main.js'), filename: appId + '-main.js' },
-	limit: { import: path.join(__dirname, 'src', 'limit.js'), filename: appId + '-limit.js' },
+	// limit: { import: path.join(__dirname, 'src', 'limit.js'), filename: appId + '-limit.js' },
 	webexShare: { import: path.join(__dirname, 'src', 'webexShare.js'), filename: appId + '-webexShare.js' },
 	pickerShare: { import: path.join(__dirname, 'src', 'pickerShare.js'), filename: appId + '-pickerShare.js' },
 }

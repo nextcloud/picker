@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import './bootstrap.js'
 // import PermissionsModal from './PermissionsModal.vue'
 
@@ -86,7 +86,7 @@ function onFileSelected(targetPath) {
 	const url = generateUrl('/apps/picker/can-share?path={targetPath}', { targetPath })
 	axios.get(url).then((response) => {
 		if (response.data.allowed) {
-			// createPublicLink(targetPath)
+			createPublicLink(targetPath)
 			permVue.setFilePath(targetPath)
 			permVue.setOpen(true)
 			lastPath = dirname(targetPath)
