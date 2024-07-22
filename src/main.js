@@ -9,6 +9,8 @@ import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 import '../css/main.scss'
+export NcDialog from '@nextcloud/vue/dist/Components/NcDialog.js'
+export NcNoteCard from '@nextcloud/vue/dist/Components/NcNoteCard.js'
 
 let permVue
 let lastPath = ''
