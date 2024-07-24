@@ -4,7 +4,7 @@ import PermissionsModal from './PermissionsModal.vue'
 
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
-import { showError, FilePickerType, getFilePickerBuilder } from '@nextcloud/dialogs'
+import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
@@ -125,12 +125,12 @@ function openFilePicker() {
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
 	filePicker.pick()
-	//	.then((targetPath) => {
-	//		onFileSelected(targetPath)
-	//	})
-	//	.catch((error) => {
-	//		console.error('Error selecting file:', error)
-	//	})
+	// .then((targetPath) => {
+	// onFileSelected(targetPath)
+	// })
+	// .catch((error) => {
+	// console.error('Error selecting file:', error)
+	// })
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
