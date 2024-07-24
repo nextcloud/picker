@@ -107,29 +107,30 @@ function openFilePicker() {
 		// .setMimeTypeFilter(null)
 		.allowDirectories(true)
 		.startAt(lastPath)
-		.setType(FilePickerType.Choose)
-		// .addButton({
-		// label: 'Choose this file',
-		// callback: (targetPath) => {
-		// console.debug('File picked:', targetPath)
-		// },
-		// type: 'primary',
-		// })
-		// .addButton({
-		// label: 'Cancel',
-		// callback: (targetPath) => console.debug('Cancel button', targetPath),
-		// type: 'secondary',
-		// })
+		// .setType(FilePickerType.Choose)
+		.addButton({
+			label: 'Choose this file',
+			callback: (targetPath) => {
+				console.debug('File picked:', targetPath)
+				onFileSelected(targetPath)
+			},
+			type: 'primary',
+		})
+		.addButton({
+			label: 'Cancel',
+			callback: (targetPath) => console.debug('Cancel button', targetPath),
+			type: 'secondary',
+		})
 		.build()
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
 	filePicker.pick()
-		.then((targetPath) => {
-			onFileSelected(targetPath)
-		})
-		.catch((error) => {
-			console.error('Error selecting file:', error)
-		})
+	//	.then((targetPath) => {
+	//		onFileSelected(targetPath)
+	//	})
+	//	.catch((error) => {
+	//		console.error('Error selecting file:', error)
+	//	})
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
