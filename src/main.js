@@ -102,7 +102,7 @@ function onFileSelected(targetPath) {
 
 function openFilePicker() {
 	console.debug('Initializing file picker...')
-	const targetName = ''
+	let targetName
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
 		// .setMimeTypeFilter(null)
