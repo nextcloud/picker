@@ -109,12 +109,13 @@ function openFilePicker() {
 		.startAt(lastPath)
 		// .setType(FilePickerType.Choose)
 		.addButton({
+			const targetName
 			callback: (nodes) => {
 				const target = nodes[0]
 				console.debug('File picked:', target)
 				const targetPath = target.path
 				const targetId = target.fileid
-				const targetName = target.displayName
+				targetName = target.displayName
 				console.debug('File picked path is:', targetPath)
 				console.debug('File picked ID is:', targetId)
 				console.debug('File picked Name is:', targetName)
