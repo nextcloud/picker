@@ -102,6 +102,7 @@ function onFileSelected(targetPath) {
 
 function openFilePicker() {
 	console.debug('Initializing file picker...')
+	const targetName
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
 		// .setMimeTypeFilter(null)
@@ -109,7 +110,6 @@ function openFilePicker() {
 		.startAt(lastPath)
 		// .setType(FilePickerType.Choose)
 		.addButton({
-			const targetName
 			callback: (nodes) => {
 				const target = nodes[0]
 				console.debug('File picked:', target)
