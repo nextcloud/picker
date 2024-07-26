@@ -109,18 +109,18 @@ function openFilePicker() {
 		.startAt(lastPath)
 		// .setType(FilePickerType.Choose)
 		.addButton({
-			label: t('picker', 'Choose this file'),
-			callback: (nodes) => {
+						callback: (nodes) => {
 				const target = nodes[0]
 				console.debug('File picked:', target)
 				const targetPath = target.path
 				const targetId = target.fileid
-				const targetName = target.attributes?.displayName
+				const targetName = target.displayName
 				console.debug('File picked path is:', targetPath)
 				console.debug('File picked ID is:', targetId)
 				console.debug('File picked Name is:', targetName)
 				onFileSelected(targetPath)
 			},
+			label: t('core', 'Choose {file}', { file: targetName }) : t('core', 'Choose'),
 			type: 'primary',
 		})
 		// .addButton({
