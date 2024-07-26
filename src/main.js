@@ -2,7 +2,7 @@ import Vue from 'vue'
 import './bootstrap.js'
 import PermissionsModal from './PermissionsModal.vue'
 
-import { generateOcsUrl, generateUrl } from '@nextcloud/router'
+import { generateOcsUrl } from '@nextcloud/router'
 // import { dirname } from '@nextcloud/paths'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
@@ -131,13 +131,14 @@ function openFilePicker() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	const View = Vue.extend(PermissionsModal)
-	permVue = new View().$mount('#picker')
+	// permVue = new View().$mount('#picker')
+	new View().$mount('#picker')
 	// permVue.$on('closed', () => {
-	// 	openFilePicker()
+	// openFilePicker()
 	// })
 
 	// permVue.$on('validate', (filePath, permission) => {
-	// 	createPublicLink(filePath, permission)
+	// createPublicLink(filePath, permission)
 	// })
 
 	openFilePicker()
