@@ -4,13 +4,14 @@ import PermissionsModal from './PermissionsModal.vue'
 
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 import { dirname } from '@nextcloud/paths'
-import { showError } from '@nextcloud/dialogs'
+import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
+import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
 let permVue
-let lastPath = null
+let lastPath = ''
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
@@ -100,13 +101,21 @@ function onFileSelected(targetPath) {
 }
 
 function openFilePicker() {
-	OC.dialogs.filepicker(
-		t('picker', 'Choose a file and start collaborating'),
-		(targetPath) => {
-			onFileSelected(targetPath)
-		},
-		false, null, true, undefined, lastPath
-	)
+	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
+		.setMultiSelect(false)
+		.allowDirectories(true)
+		.startAt(lastPath)
+		.addButton({
+			label: t('core', 'Choose'),
+			callback: (nodes) => {
+				const target = nodes[0]
+				const targetPath = target.path
+				onFileSelected(targetPath)
+			},
+			type: 'primary',
+		})
+		.build()
+	filePicker.pick()
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {

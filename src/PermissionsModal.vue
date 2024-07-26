@@ -61,8 +61,7 @@
 import CheckIcon from 'vue-material-design-icons/Check.vue'
 import PencilIcon from 'vue-material-design-icons/Pencil.vue'
 import EyeIcon from 'vue-material-design-icons/Eye.vue'
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
-import NcModal from '@nextcloud/vue/dist/Components/NcModal.js'
+import { NcButton, NcModal } from '@nextcloud/vue'
 import { generateUrl } from '@nextcloud/router'
 import { basename, dirname } from '@nextcloud/paths'
 
