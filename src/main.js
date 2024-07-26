@@ -101,46 +101,13 @@ function onFileSelected(targetPath) {
 }
 
 function openFilePicker() {
-	console.debug('Initializing file picker...')
-	let targetName
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
-		// .setMimeTypeFilter(null)
 		.allowDirectories(true)
 		.startAt(lastPath)
 		// .setType(FilePickerType.Choose)
-		.addButton({
-			callback: (nodes) => {
-				const target = nodes[0]
-				console.debug('File picked:', target)
-				const targetPath = target.path
-				const targetId = target.fileid
-				targetName = target.displayname
-				const targetName2 = target.basename
-				console.debug('File picked path is:', targetPath)
-				console.debug('File picked ID is:', targetId)
-				console.debug('File picked Name is:', targetName)
-				console.debug('File picked Name is:', targetName2)
-				onFileSelected(targetPath)
-			},
-			label: targetName ? t('core', 'Choose {targetName}}', { targetName }) : t('core', 'Choose'),
-			type: 'primary',
-		})
-		// .addButton({
-		// label: 'Cancel',
-		// callback: (targetPath) => console.debug('Cancel button', targetPath),
-		// type: 'secondary',
-		// })
 		.build()
-	console.debug('File picker built successfully')
-	console.debug('Attempting to display file picker...')
 	filePicker.pick()
-	// .then((targetPath) => {
-	// onFileSelected(targetPath)
-	// })
-	// .catch((error) => {
-	// console.error('Error selecting file:', error)
-	// })
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
