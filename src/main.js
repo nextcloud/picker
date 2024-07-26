@@ -115,10 +115,12 @@ function openFilePicker() {
 				console.debug('File picked:', target)
 				const targetPath = target.path
 				const targetId = target.fileid
-				targetName = target.displayName
+				targetName = target.displayname
+				const targetName2 = target.basename
 				console.debug('File picked path is:', targetPath)
 				console.debug('File picked ID is:', targetId)
 				console.debug('File picked Name is:', targetName)
+				console.debug('File picked Name is:', targetName2)
 				onFileSelected(targetPath)
 			},
 			label: targetName ? t('core', 'Choose {targetName}}', { targetName }) : t('core', 'Choose'),
