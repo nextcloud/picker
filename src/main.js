@@ -10,7 +10,7 @@ import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
-let permVue
+// let permVue
 // let lastPath = ''
 let webexApp
 if (window.Webex?.Application) {
