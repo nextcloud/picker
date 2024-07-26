@@ -108,6 +108,12 @@ function openFilePicker() {
 		// .setType(FilePickerType.Choose)
 		.build()
 	filePicker.pick()
+	.then((targetPath) => {
+		onFileSelected(targetPath)
+	})
+	.catch((error) => {
+		console.error('Error selecting file:', error)
+	})
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
