@@ -113,9 +113,9 @@ function openFilePicker() {
 			callback: (nodes) => {
 				const target = nodes[0]
 				console.debug('File picked:', target)
-				targetPath = target.path
-				targetId = target.fileid
-				targetName = target.attributes?.displayName
+				const targetPath = target.path
+				const targetId = target.fileid
+				const targetName = target.attributes?.displayName
 				console.debug('File picked path is:', targetPath)
 				console.debug('File picked ID is:', targetId)
 				console.debug('File picked Name is:', targetName)
