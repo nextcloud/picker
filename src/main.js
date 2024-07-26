@@ -107,11 +107,9 @@ function openFilePicker() {
 		.startAt(lastPath)
 		// .setType(FilePickerType.Choose)
 		.build()
-	filePicker.pick()
-	.then((targetPath) => {
+	filePicker.pick().then((targetPath) => {
 		onFileSelected(targetPath)
-	})
-	.catch((error) => {
+	}).catch((error) => {
 		console.error('Error selecting file:', error)
 	})
 }
