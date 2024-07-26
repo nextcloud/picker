@@ -3,7 +3,7 @@ import './bootstrap.js'
 import PermissionsModal from './PermissionsModal.vue'
 
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
-import { dirname } from '@nextcloud/paths'
+// import { dirname } from '@nextcloud/paths'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
@@ -11,7 +11,7 @@ import moment from '@nextcloud/moment'
 import '../css/main.scss'
 
 let permVue
-let lastPath = ''
+// let lastPath = ''
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
@@ -82,7 +82,7 @@ function createPublicLink(path, permission) {
 	})
 }
 
-function onFileSelected(targetPath) {
+/* function onFileSelected(targetPath) {
 	const url = generateUrl('/apps/picker/can-share?path={targetPath}', { targetPath })
 	axios.get(url).then((response) => {
 		if (response.data.allowed) {
@@ -98,19 +98,30 @@ function onFileSelected(targetPath) {
 		console.error(error)
 		showError(t('picker', 'Error while checking if you are allowed to share this file'))
 	})
-}
+} */
 
 function openFilePicker() {
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
 		.allowDirectories(true)
-		.startAt(lastPath)
+		// .startAt(lastPath)
 		.addButton({
-			label: t('core', 'Choose'),
+			label: t('picker', 'View only'),
 			callback: (nodes) => {
 				const target = nodes[0]
 				const targetPath = target.path
-				onFileSelected(targetPath)
+				const permission = 'read'
+				createPublicLink(targetPath, permission)
+			},
+			type: 'primary',
+		})
+		.addButton({
+			label: t('picker', 'Edit'),
+			callback: (nodes) => {
+				const target = nodes[0]
+				const targetPath = target.path
+				const permission = 'write'
+				createPublicLink(targetPath, permission)
 			},
 			type: 'primary',
 		})
@@ -121,13 +132,13 @@ function openFilePicker() {
 document.addEventListener('DOMContentLoaded', (event) => {
 	const View = Vue.extend(PermissionsModal)
 	permVue = new View().$mount('#picker')
-	permVue.$on('closed', () => {
-		openFilePicker()
-	})
+	// permVue.$on('closed', () => {
+	// 	openFilePicker()
+	// })
 
-	permVue.$on('validate', (filePath, permission) => {
-		createPublicLink(filePath, permission)
-	})
+	// permVue.$on('validate', (filePath, permission) => {
+	// 	createPublicLink(filePath, permission)
+	// })
 
 	openFilePicker()
 })
