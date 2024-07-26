@@ -109,18 +109,25 @@ function openFilePicker() {
 		.startAt(lastPath)
 		// .setType(FilePickerType.Choose)
 		.addButton({
-			label: 'Choose this file',
-			callback: (targetPath) => {
-				console.debug('File picked:', targetPath)
+			label: t('picker', 'Choose this file'),
+			callback: (nodes) => {
+				const target = nodes[0]
+				console.debug('File picked:', target)
+				targetPath = target.path
+				targetId = target.fileid
+				targetName = target.attributes?.displayName
+				console.debug('File picked path is:', targetPath)
+				console.debug('File picked ID is:', targetId)
+				console.debug('File picked ID is:', targetName)
 				onFileSelected(targetPath)
 			},
 			type: 'primary',
 		})
-		.addButton({
-			label: 'Cancel',
-			callback: (targetPath) => console.debug('Cancel button', targetPath),
-			type: 'secondary',
-		})
+		// .addButton({
+		// label: 'Cancel',
+		// callback: (targetPath) => console.debug('Cancel button', targetPath),
+		// type: 'secondary',
+		// })
 		.build()
 	console.debug('File picker built successfully')
 	console.debug('Attempting to display file picker...')
