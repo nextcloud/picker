@@ -118,7 +118,7 @@ function openFilePicker() {
 				targetName = target.attributes?.displayName
 				console.debug('File picked path is:', targetPath)
 				console.debug('File picked ID is:', targetId)
-				console.debug('File picked ID is:', targetName)
+				console.debug('File picked Name is:', targetName)
 				onFileSelected(targetPath)
 			},
 			type: 'primary',
