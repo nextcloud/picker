@@ -105,13 +105,17 @@ function openFilePicker() {
 		.setMultiSelect(false)
 		.allowDirectories(true)
 		.startAt(lastPath)
-		// .setType(FilePickerType.Choose)
+		.addButton({
+			label: t('core', 'Choose'),
+			callback: (nodes) => {
+				const target = nodes[0]
+				const targetPath = target.path
+				onFileSelected(targetPath)
+			},
+			type: 'primary',
+		})
 		.build()
-	filePicker.pick().then((targetPath) => {
-		onFileSelected(targetPath)
-	}).catch((error) => {
-		console.error('Error selecting file:', error)
-	})
+	filePicker.pick()
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
