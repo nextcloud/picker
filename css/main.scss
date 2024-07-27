@@ -2,7 +2,18 @@ header#header {
 	display: none !important;
 }
 
-.oc-dialog {
+.modal-container__close {
+	display: none !important;
+}
+
+.file-picker__main {
+
+	.breadcrumb__actions {
+	display: none !important;
+	}
+}
+
+/* .oc-dialog {
 	height: 100% !important;
 	width: 100% !important;
 	border-radius: unset !important;
@@ -20,10 +31,6 @@ header#header {
 		#picker-filestable.filelist td {
 			border-bottom: 0 !important;
 		}
-	}
-
-	.oc-dialog-close {
-		display: none !important;
 	}
 
 	tr {
@@ -53,4 +60,4 @@ header#header {
 			}
 		}
 	}
-}
+} */
