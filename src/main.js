@@ -10,6 +10,7 @@ import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 // import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
 // import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
+// import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
 // import '../css/main.scss'
 
 // let permVue
@@ -36,7 +37,7 @@ if (window.Webex?.Application) {
 	console.debug('[picker main] No webex app')
 }
 
-function editShare(shareId, permission) {
+function editShare(shareId, permission, action) {
 	const url = generateOcsUrl('/apps/files_sharing/api/v1/shares/{shareId}', { shareId })
 	const req = {
 		permissions: permission === 'write' ? 3 : undefined,
@@ -57,6 +58,16 @@ function editShare(shareId, permission) {
 			}).catch((error) => {
 				console.error(error)
 			})
+		} else if (action === 'copy') {
+			console.debug('[picker main] after edit, there is NO webex app => copyShareLink')
+			navigator.clipboard.writeText(publicLinkUrl).then(() => {
+				console.debug('Link copied to clipboard successfully')
+				if (window.opener) {
+					window.opener.window.pickerWindow.close()
+				} else {
+					window.parent.closePickerIframe()
+				}
+			})
 		} else {
 			console.debug('[picker main] after edit, there is NO webex app => setShareUrl')
 			window.location = publicLinkUrl
@@ -67,7 +78,7 @@ function editShare(shareId, permission) {
 	})
 }
 
-function createPublicLink(path, permission) {
+function createPublicLink(path, permission, action) {
 	const url = generateOcsUrl('/apps/files_sharing/api/v1/shares')
 	const req = {
 		path,
@@ -77,11 +88,36 @@ function createPublicLink(path, permission) {
 	axios.post(url, req).then((response) => {
 		console.debug('ADD SUCCESS', response.data?.ocs?.data)
 		const shareId = response.data?.ocs?.data?.id
-		editShare(shareId, permission)
+		editShare(shareId, permission, action)
 	}).catch((error) => {
 		console.error(error)
 		showError(t('picker', 'Error while creating the shared access'))
 	})
+}
+
+function copyInternalLink(targetId) {
+		const internalLinkURL = generateAbsoluteUrl('/f/') + targetId
+		console.debug('internalLinkURL is', internalLinkURL)
+		if (webexApp) {
+			console.debug('[picker main] after getting Internal Link, there is a webex app => setInternalLinkURL')
+			webexApp.setInternalLinkURL(internalLinkURL, internalLinkURL, t('picker', 'Nextcloud picker')).then(() => {
+				console.debug('[picker main] setinternalLinkURL.then => change location to', internalLinkURL)
+				window.location = internalLinkURL
+			}).catch((error) => {
+				console.error(error)
+			})
+		} else {
+			console.debug('[picker main] after getting Internal Link, there is NO webex app => copyInternalLinkURL')
+			navigator.clipboard.writeText(internalLinkURL).then(() => {
+				console.debug('Internal Link copied to clipboard successfully')
+				if (window.opener) {
+					window.opener.window.pickerWindow.close()
+				} else {
+					openFilePicker()
+					window.parent.closePickerIframe()
+				}
+			})
+		}
 }
 
 /* function onFileSelected(targetPath) {
@@ -106,7 +142,6 @@ function openFilePicker() {
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
 		.setMultiSelect(false)
 		.allowDirectories(true)
-		// .startAt(lastPath)
 		.addButton({
 			label: t('picker', 'View only'),
 			callback: (nodes) => {
@@ -133,11 +168,50 @@ function openFilePicker() {
 	filePicker.pick()
 }
 
+function openFilePickerClipboard() {
+	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file you want to copy a link from'))
+		.setMultiSelect(false)
+		.allowDirectories(true)
+		.addButton({
+			label: t('picker', 'Copy Read Only public link'),
+			callback: (nodes) => {
+				const target = nodes[0]
+				const targetPath = target.path
+				const permission = 'read'
+				createPublicLink(targetPath, permission, 'copy')
+			},
+			type: 'primary',
+			// icon: EyeIcon,
+		})
+		label: t('picker', 'Copy Editable public link'),
+		callback: (nodes) => {
+			const target = nodes[0]
+			const targetPath = target.path
+			const permission = 'write'
+			createPublicLink(targetPath, permission, 'copy')
+		},
+		type: 'primary',
+		// icon: PencilIcon,
+		})
+		.addButton({
+			label: t('picker', 'Copy Internal link'),
+			callback: (nodes) => {
+				const target = nodes[0]
+				const targetId = target.fileid
+				copyInternalLink(targetId)
+			},
+			type: 'primary',
+			// icon: InternalIcon,
+		})
+		.build()
+	filePicker.pick()
+}
+
 document.addEventListener('DOMContentLoaded', (event) => {
 	// const View = Vue.extend(PermissionsModal)
-	const View = Vue
+	// const View = Vue
 	// permVue = new View().$mount('#picker')
-	new View().$mount('#picker')
+	// new View().$mount('#picker')
 	// permVue.$on('closed', () => {
 	// openFilePicker()
 	// })
@@ -145,6 +219,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	// permVue.$on('validate', (filePath, permission) => {
 	// createPublicLink(filePath, permission)
 	// })
-
-	openFilePicker()
-})
+	const queryString = window.location.search
+	const urlParams = new URLSearchParams(queryString)
+	const option = urlParams.get('option')
+	if (option === 'Clipboard') {
+		console.debug('Display openFilePickerClipboard')
+		openFilePickerClipboard()
+	} else {
+		console.debug('Display openFilePicker')
+		openFilePicker()
+	}})
