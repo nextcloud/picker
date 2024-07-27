@@ -16,8 +16,8 @@ import PencilIcon from 'vue-material-design-icons/Pencil.vue'
 export default {
 	name: 'Icons',
 	components: {
-		EyeIcon;
-		PencilIcon;
+		EyeIcon,
+		PencilIcon,
 	}
 }
 
