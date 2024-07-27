@@ -8,9 +8,9 @@ import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
-// import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
-// import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
-// import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
+import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
+import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
+import InternalIcon from '@mdi/svg/svg/open-in-new.svg?raw'
 // import '../css/main.scss'
 export function generateAbsoluteUrl(url, params, options) {
 	const fullPath = generateUrl(url, params, options)
@@ -155,7 +155,7 @@ function openFilePicker() {
 				createPublicLink(targetPath, permission)
 			},
 			type: 'primary',
-			// icon: PencilIcon,
+			icon: PencilIcon,
 		})
 		.addButton({
 			label: t('picker', 'Edit'),
@@ -166,7 +166,7 @@ function openFilePicker() {
 				createPublicLink(targetPath, permission)
 			},
 			type: 'secondary',
-			// icon: EyeIcon,
+			icon: EyeIcon,
 		})
 		.build()
 	filePicker.pick()
@@ -185,7 +185,7 @@ function openFilePickerClipboard() {
 				createPublicLink(targetPath, permission, 'copy')
 			},
 			type: 'primary',
-			// icon: EyeIcon,
+			icon: EyeIcon,
 		})
 		.addButton({
 			label: t('picker', 'Copy Editable public link'),
@@ -196,7 +196,7 @@ function openFilePickerClipboard() {
 				createPublicLink(targetPath, permission, 'copy')
 			},
 			type: 'secondary',
-			// icon: PencilIcon,
+			icon: PencilIcon,
 		})
 		.addButton({
 			label: t('picker', 'Copy Internal link'),
@@ -206,7 +206,7 @@ function openFilePickerClipboard() {
 				copyInternalLink(targetId)
 			},
 			type: 'success',
-			// icon: InternalIcon,
+			icon: InternalIcon,
 		})
 		.build()
 	filePicker.pick()
