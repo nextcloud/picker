@@ -2,7 +2,7 @@
 import './bootstrap.js'
 // import PermissionsModal from './PermissionsModal.vue'
 
-import { generateOcsUrl } from '@nextcloud/router'
+import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 // import { dirname } from '@nextcloud/paths'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
@@ -12,6 +12,10 @@ import moment from '@nextcloud/moment'
 // import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
 // import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
 // import '../css/main.scss'
+export function generateAbsoluteUrl(url, params, options) {
+	const fullPath = generateUrl(url, params, options)
+	return `${window.location.origin}${fullPath}`
+}
 
 // let permVue
 // let lastPath = ''
