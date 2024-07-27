@@ -9,7 +9,7 @@ import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
-import 'pencil.svg' from '@mdi/svg/svg/pencil.svg?raw'
+import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
 // import InternalIcon from '@mdi/svg/svg/open-in-new.svg?raw'
 import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
 import '../css/main.scss'
@@ -198,7 +198,7 @@ function openFilePickerClipboard() {
 				createPublicLink(targetPath, permission, 'copy')
 			},
 			type: 'secondary',
-			icon: 'pencil.svg',
+			icon: PencilIcon,
 		})
 		.addButton({
 			label: t('picker', 'Copy Internal link'),
