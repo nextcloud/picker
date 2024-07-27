@@ -96,28 +96,28 @@ function createPublicLink(path, permission, action) {
 }
 
 function copyInternalLink(targetId) {
-		const internalLinkURL = generateAbsoluteUrl('/f/') + targetId
-		console.debug('internalLinkURL is', internalLinkURL)
-		if (webexApp) {
-			console.debug('[picker main] after getting Internal Link, there is a webex app => setInternalLinkURL')
-			webexApp.setInternalLinkURL(internalLinkURL, internalLinkURL, t('picker', 'Nextcloud picker')).then(() => {
-				console.debug('[picker main] setinternalLinkURL.then => change location to', internalLinkURL)
-				window.location = internalLinkURL
-			}).catch((error) => {
-				console.error(error)
-			})
-		} else {
-			console.debug('[picker main] after getting Internal Link, there is NO webex app => copyInternalLinkURL')
-			navigator.clipboard.writeText(internalLinkURL).then(() => {
-				console.debug('Internal Link copied to clipboard successfully')
-				if (window.opener) {
-					window.opener.window.pickerWindow.close()
-				} else {
-					openFilePicker()
-					window.parent.closePickerIframe()
-				}
-			})
-		}
+	const internalLinkURL = generateAbsoluteUrl('/f/') + targetId
+	console.debug('internalLinkURL is', internalLinkURL)
+	if (webexApp) {
+		console.debug('[picker main] after getting Internal Link, there is a webex app => setInternalLinkURL')
+		webexApp.setInternalLinkURL(internalLinkURL, internalLinkURL, t('picker', 'Nextcloud picker')).then(() => {
+			console.debug('[picker main] setinternalLinkURL.then => change location to', internalLinkURL)
+			window.location = internalLinkURL
+		}).catch((error) => {
+			console.error(error)
+		})
+	} else {
+		console.debug('[picker main] after getting Internal Link, there is NO webex app => copyInternalLinkURL')
+		navigator.clipboard.writeText(internalLinkURL).then(() => {
+			console.debug('Internal Link copied to clipboard successfully')
+			if (window.opener) {
+				window.opener.window.pickerWindow.close()
+			} else {
+				openFilePicker()
+				window.parent.closePickerIframe()
+			}
+		})
+	}
 }
 
 /* function onFileSelected(targetPath) {
@@ -183,15 +183,16 @@ function openFilePickerClipboard() {
 			type: 'primary',
 			// icon: EyeIcon,
 		})
-		label: t('picker', 'Copy Editable public link'),
-		callback: (nodes) => {
-			const target = nodes[0]
-			const targetPath = target.path
-			const permission = 'write'
-			createPublicLink(targetPath, permission, 'copy')
-		},
-		type: 'primary',
-		// icon: PencilIcon,
+		.addButton({
+			label: t('picker', 'Copy Editable public link'),
+			callback: (nodes) => {
+				const target = nodes[0]
+				const targetPath = target.path
+				const permission = 'write'
+				createPublicLink(targetPath, permission, 'copy')
+			},
+			type: 'primary',
+			// icon: PencilIcon,
 		})
 		.addButton({
 			label: t('picker', 'Copy Internal link'),
