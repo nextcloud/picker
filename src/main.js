@@ -1,4 +1,4 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 import './bootstrap.js'
 // import PermissionsModal from './PermissionsModal.vue'
 
