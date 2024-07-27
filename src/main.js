@@ -10,7 +10,8 @@ import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
 import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
 import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
-import InternalIcon from '@mdi/svg/svg/open-in-new.svg?raw'
+// import InternalIcon from '@mdi/svg/svg/open-in-new.svg?raw'
+import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
 // import '../css/main.scss'
 export function generateAbsoluteUrl(url, params, options) {
 	const fullPath = generateUrl(url, params, options)
