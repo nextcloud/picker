@@ -8,10 +8,8 @@ import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
-import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
-import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
-// import PencilIcon from 'vue-material-design-icons/Pencil.vue'
-// import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
+// import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
+// import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
 // import '../css/main.scss'
 
 // let permVue
@@ -118,7 +116,7 @@ function openFilePicker() {
 				createPublicLink(targetPath, permission)
 			},
 			type: 'primary',
-			icon: PencilIcon,
+			// icon: PencilIcon,
 		})
 		.addButton({
 			label: t('picker', 'Edit'),
@@ -129,7 +127,7 @@ function openFilePicker() {
 				createPublicLink(targetPath, permission)
 			},
 			type: 'primary',
-			icon: EyeIcon,
+			// icon: EyeIcon,
 		})
 		.build()
 	filePicker.pick()
