@@ -57,3 +57,39 @@ If the file file you selected is supported by Nextcloud Text, Nextcloud Office o
 you will be able to collaborate on this file with all the call participants.
 
 You can then press "Close for all" if you want to hide the app for all participants.
+
+## Copy link to Clipboard and close the window/iframe
+
+This button will copy the desired link and can close the picker app window if it has been opened with a js `pickerWindow` button like 
+```
+newButton.onclick = () => {
+  pickerWindow = window.open('https://your.nextcloud.org/index.php/apps/picker/single-link?option=Clipboard', 'pickerWindow', 'popup');
+};
+```
+or can close the iframe if it has been opened with a js button similar to
+```
+newButton.onclick = () => {
+  // Create the iframe element
+  var pickerFrame = document.createElement('iframe';
+  pickerFrame.id = 'pickerFrame';
+  pickerFrame.height = '800'; // set the height
+  pickerFrame.width = 800'; // set the width
+  pickerFrame.src = 'https://your.nextcloud.org/index.php/apps/picker/single-link?option=Clipboard'; // Set the source URL
+  pickerFrame.style.border = 'none'; // Remove the default border
+  // Set the iframe styles to position it in the middle and on top
+  pickerFrame.style.position = 'fixed';
+  pickerFrame.style.top = '50%';
+  pickerFrame.style.left = '50%';
+  pickerFrame.style.transform = 'translate(-50%, -50%)';
+  pickerFrame.style.zIndex = '9999'; // Adjust this value as needed
+  // Append the iframe to the document body
+  document.body.appendChild(pickerFrame);
+};
+```
+and the following `closePickerIframe` function is available for the iframe to call it :
+```
+function closePickerIframe() {
+  const pickerFrame = document.getElementById('pickerFrame');
+  document.body.removeChild(pickerFrame); // Remove the iframe
+}
+```
