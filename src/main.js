@@ -11,7 +11,13 @@ import moment from '@nextcloud/moment'
 import EyeIcon from 'vue-material-design-icons/Eye.vue'
 import PencilIcon from 'vue-material-design-icons/Pencil.vue'
 // import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
+components: {
+	EyeIcon;
+	PencilIcon;
+  }
 // import '../css/main.scss'
+
+
 
 // let permVue
 // let lastPath = ''
