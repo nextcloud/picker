@@ -8,7 +8,8 @@ import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
-import EyeIcon from 'vue-material-design-icons/Eye.vue'
+import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
+import PencilIcon from '@mdi/svg/svg/eye.svg?raw'
 // import PencilIcon from 'vue-material-design-icons/Pencil.vue'
 // import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
 // import '../css/main.scss'
@@ -117,7 +118,7 @@ function openFilePicker() {
 				createPublicLink(targetPath, permission)
 			},
 			type: 'primary',
-			icon: 'eye-icon',
+			icon: PencilIcon,
 		})
 		.addButton({
 			label: t('picker', 'Edit'),
@@ -128,7 +129,7 @@ function openFilePicker() {
 				createPublicLink(targetPath, permission)
 			},
 			type: 'primary',
-			icon: 'eye-icon',
+			icon: EyeIcon,
 		})
 		.build()
 	filePicker.pick()
@@ -136,7 +137,7 @@ function openFilePicker() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
 	// const View = Vue.extend(PermissionsModal)
-	const View = Vue.component('eye-icon', EyeIcon)
+	const View = Vue
 	// permVue = new View().$mount('#picker')
 	new View().$mount('#picker')
 	// permVue.$on('closed', () => {
