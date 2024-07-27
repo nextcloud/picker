@@ -70,6 +70,7 @@ function editShare(shareId, permission, action) {
 				if (window.opener) {
 					window.opener.window.pickerWindow.close()
 				} else {
+					openFilePickerClipboard()
 					window.parent.closePickerIframe()
 				}
 			})
@@ -118,7 +119,7 @@ function copyInternalLink(targetId) {
 			if (window.opener) {
 				window.opener.window.pickerWindow.close()
 			} else {
-				openFilePicker()
+				openFilePickerClipboard()
 				window.parent.closePickerIframe()
 			}
 		})
