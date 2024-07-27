@@ -165,7 +165,7 @@ function openFilePicker() {
 				const permission = 'write'
 				createPublicLink(targetPath, permission)
 			},
-			type: 'primary',
+			type: 'secondary',
 			// icon: EyeIcon,
 		})
 		.build()
@@ -195,7 +195,7 @@ function openFilePickerClipboard() {
 				const permission = 'write'
 				createPublicLink(targetPath, permission, 'copy')
 			},
-			type: 'primary',
+			type: 'secondary',
 			// icon: PencilIcon,
 		})
 		.addButton({
@@ -205,7 +205,7 @@ function openFilePickerClipboard() {
 				const targetId = target.fileid
 				copyInternalLink(targetId)
 			},
-			type: 'primary',
+			type: 'success',
 			// icon: InternalIcon,
 		})
 		.build()
