@@ -117,7 +117,7 @@ function openFilePicker() {
 				createPublicLink(targetPath, permission)
 			},
 			type: 'primary',
-			icon: eye-icon,
+			icon: 'eye-icon',
 		})
 		.addButton({
 			label: t('picker', 'Edit'),
@@ -128,7 +128,7 @@ function openFilePicker() {
 				createPublicLink(targetPath, permission)
 			},
 			type: 'primary',
-			icon: eye-icon,
+			icon: 'eye-icon',
 		})
 		.build()
 	filePicker.pick()
