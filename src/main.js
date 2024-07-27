@@ -233,4 +233,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
 	} else {
 		console.debug('Display openFilePicker')
 		openFilePicker()
-	}})
+	}
+})
