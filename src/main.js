@@ -189,7 +189,8 @@ function openFilePickerClipboard() {
 				const target = nodes[0]
 				const targetPath = target.path
 				const permission = 'read'
-				createPublicLink(targetPath, permission, 'copy')
+				const action = 'copy'
+				createPublicLink(targetPath, permission, action)
 			},
 			type: 'primary',
 			icon: EyeIcon,
@@ -200,7 +201,8 @@ function openFilePickerClipboard() {
 				const target = nodes[0]
 				const targetPath = target.path
 				const permission = 'write'
-				createPublicLink(targetPath, permission, 'copy')
+				const action = 'copy'
+				createPublicLink(targetPath, permission, action)
 			},
 			type: 'secondary',
 			icon: PencilIcon,
