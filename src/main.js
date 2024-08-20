@@ -1,46 +1,23 @@
-// import Vue from 'vue'
 import './bootstrap.js'
-// import PermissionsModal from './PermissionsModal.vue'
-
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
-// import { dirname } from '@nextcloud/paths'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
 import '@nextcloud/dialogs/style.css'
 import axios from '@nextcloud/axios'
 import moment from '@nextcloud/moment'
-// import EyeIcon from '../img/eye.svg'
-// import '../img/pencil.svg?raw'
-// import '../img/open-in-new.svg'
 import EyeIcon from '@mdi/svg/svg/eye.svg?raw'
 import PencilIcon from '@mdi/svg/svg/pencil.svg?raw'
 import InternalIcon from '@mdi/svg/svg/open-in-new.svg?raw'
-// import EyeIcon from 'vue-material-design-icons/Eye.vue'
-// import PencilIcon from 'vue-material-design-icons/Pencil.vue'
-// import InternalIcon from 'vue-material-design-icons/OpenInNew.vue'
 import '../css/main.scss'
 export function generateAbsoluteUrl(url, params, options) {
 	const fullPath = generateUrl(url, params, options)
 	return `${window.location.origin}${fullPath}`
 }
 
-// let permVue
-// let lastPath = ''
 let webexApp
 if (window.Webex?.Application) {
 	webexApp = new window.Webex.Application()
 	webexApp.onReady().then(() => {
 		console.debug('[picker main] host app is ready', webexApp)
-		// log('onReady()', { message: 'host app is ready' })
-		/*
-		webexApp.listen().then(() => {
-			app.on('application:displayContextChanged', (payload) => log('application:displayContextChanged', payload));
-			app.on('application:shareStateChanged', (payload) => log('application:shareStateChanged', payload));
-			app.on('application:themeChanged', (payload) => log('application:themeChanged', payload));
-			app.on('meeting:infoChanged', (payload) => log('meeting:infoChanged', payload));
-			app.on('meeting:roleChanged', (payload) => log('meeting:roleChanged', payload));
-			app.on('space:infoChanged', (payload) => log('space:infoChanged', payload));
-		})
-		*/
 	})
 	console.debug('[picker main] Yes we are in a webex app', webexApp)
 } else {
@@ -58,10 +35,6 @@ function editShare(shareId, permission, action) {
 		const publicLinkUrl = response.data?.ocs?.data?.url
 		if (webexApp) {
 			console.debug('[picker main] after edit, there is a webex app => setShareUrl')
-			// const token = response.data?.ocs?.data?.token
-			// const fileId = response.data?.ocs?.data?.file_source
-			// const urlForWebex = generateUrl('/apps/picker/webex-share/{token}?fileId={fileId}', { token, fileId })
-			// webexApp.setShareUrl(urlForWebex, urlForWebex, t('picker', 'Nextcloud picker')).then(() => {
 			webexApp.setShareUrl(publicLinkUrl, publicLinkUrl, t('picker', 'Nextcloud picker')).then(() => {
 				console.debug('[picker main] setShareUrl.then => change location to', publicLinkUrl)
 				window.location = publicLinkUrl
@@ -130,24 +103,6 @@ function copyInternalLink(targetId) {
 		})
 	}
 }
-
-/* function onFileSelected(targetPath) {
-	const url = generateUrl('/apps/picker/can-share?path={targetPath}', { targetPath })
-	axios.get(url).then((response) => {
-		if (response.data.allowed) {
-			// createPublicLink(targetPath)
-			permVue.setFilePath(targetPath)
-			permVue.setOpen(true)
-			lastPath = dirname(targetPath)
-		} else {
-			showError(t('picker', 'You are not allowed to share this file'))
-			setTimeout(openFilePicker, 500)
-		}
-	}).catch((error) => {
-		console.error(error)
-		showError(t('picker', 'Error while checking if you are allowed to share this file'))
-	})
-} */
 
 function openFilePicker() {
 	const filePicker = getFilePickerBuilder(t('picker', 'Choose a file and start collaborating'))
@@ -222,17 +177,6 @@ function openFilePickerClipboard() {
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
-	// const View = Vue.extend(PermissionsModal)
-	// const View = Vue
-	// permVue = new View().$mount('#picker')
-	// new View().$mount('#picker')
-	// permVue.$on('closed', () => {
-	// openFilePicker()
-	// })
-
-	// permVue.$on('validate', (filePath, permission) => {
-	// createPublicLink(filePath, permission)
-	// })
 	const queryString = window.location.search
 	const urlParams = new URLSearchParams(queryString)
 	const option = urlParams.get('option')
