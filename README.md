@@ -57,3 +57,40 @@ If the file file you selected is supported by Nextcloud Text, Nextcloud Office o
 you will be able to collaborate on this file with all the call participants.
 
 You can then press "Close for all" if you want to hide the app for all participants.
+
+## Copy link to Clipboard and close the window/iframe
+
+It is possible to launch a specific picker interface with a button that would close automatically after copying to the clipboard the desired link. To do so, you can either launch it in a new window with the following code : 
+ 
+```javascript
+newButton.onclick = () => {
+  pickerWindow = window.open('https://example.com/index.php/apps/picker/single-link?option=Clipboard', 'pickerWindow', 'popup');
+};
+```
+or launch it in an iframe with the following code : 
+```javascript
+newButton.onclick = () => {
+  // Create the iframe element
+  var pickerFrame = document.createElement('iframe');
+  pickerFrame.id = 'pickerFrame';
+  pickerFrame.src = 'https://example.com/index.php/apps/picker/single-link?option=Clipboard'; // Set the source URL
+  pickerFrame.style.height = '800px'; // set the height
+  pickerFrame.style.width = '800px'; // set the width
+  pickerFrame.style.maxHeight = '80vh'; // set max height to display on mobile
+  pickerFrame.style.maxWidth = '100%'; // set max width to display on mobile
+  pickerFrame.style.border = 'none'; // Remove the default border
+  // Set the iframe styles to position it in the middle and on top
+  pickerFrame.style.position = 'fixed';
+  pickerFrame.style.top = '50%';
+  pickerFrame.style.left = '50%';
+  pickerFrame.style.transform = 'translate(-50%, -50%)';
+  pickerFrame.style.zIndex = 9999; // Adjust this value as needed
+  // Append the iframe to the document body
+  document.body.appendChild(pickerFrame);
+};
+// This method needs to be top-level to be accessible by the iframe via the parent window accessor.
+function closePickerIframe() {
+  const pickerFrame = document.getElementById('pickerFrame');
+  document.body.removeChild(pickerFrame); // Remove the iframe
+}
+```

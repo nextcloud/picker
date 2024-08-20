@@ -2,55 +2,16 @@ header#header {
 	display: none !important;
 }
 
-.oc-dialog {
-	height: 100% !important;
-	width: 100% !important;
-	border-radius: unset !important;
-	box-shadow: unset !important;
-	max-height: unset !important;
-	max-width: unset !important;
+.modal-container__close {
+	display: none !important;
+}
 
-	.actions.creatable {
+.file-picker__main {
+	.breadcrumb__actions {
 		display: none !important;
 	}
+}
 
-	#oc-dialog-filepicker-content {
-		max-width: unset !important;
-
-		#picker-filestable.filelist td {
-			border-bottom: 0 !important;
-		}
-	}
-
-	.oc-dialog-close {
-		display: none !important;
-	}
-
-	tr {
-		td {
-			&:first-child {
-				border-top-left-radius: var(--border-radius-large);
-				border-bottom-left-radius: var(--border-radius-large);
-			}
-			&:last-child {
-				border-top-right-radius: var(--border-radius-large);
-				border-bottom-right-radius: var(--border-radius-large);
-			}
-		}
-
-		&:hover {
-			background: none;
-			td {
-				background: var(--color-background-dark);
-			}
-		}
-
-		&.filepicker_element_selected {
-			background: none !important;
-			background-color: unset !important;
-			td {
-				background: var(--color-background-darker);
-			}
-		}
-	}
+.dialog__actions {
+	justify-content: center !important;
 }

@@ -5,29 +5,29 @@
 		</p>
 		<a :href="state.publicLink"
 			style="margin-top: 12px;">
-			<Button type="primary">
+			<NcButton type="primary">
 				<template #icon>
 					<LinkVariantIcon />
 				</template>
 				{{ t('picker', 'Public link') }}
-			</Button>
+			</NcButton>
 		</a>
 		<a :href="internalLink"
 			style="margin-top: 12px;">
-			<Button type="primary">
+			<NcButton type="primary">
 				<template #icon>
 					<OpenInNewIcon />
 				</template>
 				{{ t('picker', 'View the file as a user') }}
-			</Button>
+			</NcButton>
 		</a>
 	</div>
 </template>
 
 <script>
-import LinkVariantIcon from 'vue-material-design-icons/LinkVariant'
-import OpenInNewIcon from 'vue-material-design-icons/OpenInNew'
-import Button from '@nextcloud/vue/dist/Components/Button'
+import LinkVariantIcon from 'vue-material-design-icons/LinkVariant.vue'
+import OpenInNewIcon from 'vue-material-design-icons/OpenInNew.vue'
+import { NcButton } from '@nextcloud/vue'
 import { loadState } from '@nextcloud/initial-state'
 import { generateUrl } from '@nextcloud/router'
 
@@ -35,7 +35,7 @@ export default {
 	name: 'WebexShare',
 
 	components: {
-		Button,
+		NcButton,
 		LinkVariantIcon,
 		OpenInNewIcon,
 	},
