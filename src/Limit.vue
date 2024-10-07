@@ -18,7 +18,7 @@
 
 <script>
 import OpenInNewIcon from 'vue-material-design-icons/OpenInNew.vue'
-import NcButton from '@nextcloud/vue/dist/Components/NcButton.js'
+import { NcButton } from '@nextcloud/vue'
 import { loadState } from '@nextcloud/initial-state'
 
 export default {
