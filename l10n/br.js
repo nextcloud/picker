@@ -1,9 +1,8 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Arrest",
-    "Edit" : "Cheñch",
     "Public link" : "Liamm publik",
+    "Edit" : "Cheñch",
     "Yes" : "Ya",
     "No" : "Nann"
 },

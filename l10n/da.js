@@ -2,10 +2,9 @@ OC.L10N.register(
     "picker",
     {
     "Picker" : "Vælger",
-    "Cancel" : "Annuller",
+    "Public link" : "Offentligt link",
     "View only" : "Kun visning",
     "Edit" : "Redigér",
-    "Public link" : "Offentligt link",
     "Do you want to choose another file?" : "Vil du vælge en anden fil?",
     "Choose another file?" : "Vælg en anden fil?",
     "Yes" : "Ja",

@@ -1,11 +1,9 @@
 OC.L10N.register(
     "picker",
     {
-    "in" : "en",
-    "Cancel" : "Cancel·la",
+    "Public link" : "Enllaç públic",
     "View only" : "Només visualitació",
     "Edit" : "Edita",
-    "Public link" : "Enllaç públic",
     "Yes" : "Sí",
     "No" : "No"
 },

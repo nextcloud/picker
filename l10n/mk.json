@@ -1,9 +1,7 @@
 { "translations": {
-    "in" : "во",
-    "Cancel" : "Откажи",
+    "Public link" : "Јавен линк",
     "View only" : "Само за гледање",
     "Edit" : "Уреди",
-    "Public link" : "Јавен линк",
     "Yes" : "Да",
     "No" : "Не"
 },"pluralForm" :"nplurals=2; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : 1;"

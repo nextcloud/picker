@@ -1,7 +1,6 @@
 { "translations": {
-    "Cancel" : "Nuligi",
-    "Edit" : "Modifi",
     "Public link" : "Publika ligilo",
+    "Edit" : "Modifi",
     "Yes" : "Yes",
     "No" : "No"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

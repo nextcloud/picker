@@ -1,7 +1,6 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Diddymu",
     "Edit" : "Golygu",
     "Yes" : "Iawn",
     "No" : "No"

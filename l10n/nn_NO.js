@@ -1,7 +1,6 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Avbryt",
     "Edit" : "Rediger",
     "Yes" : "Ja",
     "No" : "Nei"

@@ -1,7 +1,6 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Sefsex",
     "Edit" : "Ẓreg",
     "Yes" : "Oui",
     "No" : "Uhu"

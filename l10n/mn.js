@@ -1,7 +1,6 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "болиулах",
     "View only" : "Зөвхөн үзэх",
     "Edit" : "засварлах",
     "Yes" : "Тийм",

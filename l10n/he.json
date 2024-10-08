@@ -1,8 +1,7 @@
 { "translations": {
-    "Cancel" : "ביטול",
+    "Public link" : "קישור ציבורי",
     "View only" : "לצפיה בלבד",
     "Edit" : "עריכה",
-    "Public link" : "קישור ציבורי",
     "Yes" : "כן",
     "No" : "לא"
 },"pluralForm" :"nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;"

@@ -1,10 +1,9 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Cancelar",
+    "Public link" : "Hiperligação Pública",
     "View only" : "Visualizar apenas",
     "Edit" : "Editar",
-    "Public link" : "Hiperligação Pública",
     "Yes" : "Sim",
     "No" : "Não"
 },

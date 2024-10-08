@@ -1,7 +1,6 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Sguir dheth",
     "Edit" : "Deasaich",
     "Yes" : "Tha",
     "No" : "Chan eil"

@@ -1,9 +1,7 @@
 { "translations": {
-    "in" : "en",
-    "Cancel" : "Cancel·la",
+    "Public link" : "Enllaç públic",
     "View only" : "Només visualitació",
     "Edit" : "Edita",
-    "Public link" : "Enllaç públic",
     "Yes" : "Sí",
     "No" : "No"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

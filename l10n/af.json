@@ -1,7 +1,6 @@
 { "translations": {
-    "Cancel" : "Kanselleer",
-    "Edit" : "Wysig",
     "Public link" : "Openbare skakel",
+    "Edit" : "Wysig",
     "Yes" : "Ja",
     "No" : "Nee"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

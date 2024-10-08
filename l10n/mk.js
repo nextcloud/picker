@@ -1,11 +1,9 @@
 OC.L10N.register(
     "picker",
     {
-    "in" : "во",
-    "Cancel" : "Откажи",
+    "Public link" : "Јавен линк",
     "View only" : "Само за гледање",
     "Edit" : "Уреди",
-    "Public link" : "Јавен линк",
     "Yes" : "Да",
     "No" : "Не"
 },

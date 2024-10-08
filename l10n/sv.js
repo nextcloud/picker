@@ -2,10 +2,9 @@ OC.L10N.register(
     "picker",
     {
     "Picker" : "Väljare",
-    "Cancel" : "Avbryt",
+    "Public link" : "Publik länk",
     "View only" : "Skrivskyddat läge",
     "Edit" : "Ändra",
-    "Public link" : "Publik länk",
     "Yes" : "Ja",
     "No" : "Nej"
 },

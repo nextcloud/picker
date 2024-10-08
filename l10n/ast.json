@@ -1,8 +1,7 @@
 { "translations": {
-    "Cancel" : "Encaboxar",
+    "Public link" : "Enllaz públicu",
     "View only" : "Ver namás",
     "Edit" : "Editar",
-    "Public link" : "Enllaz públicu",
     "Yes" : "Sí",
     "No" : "Non"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

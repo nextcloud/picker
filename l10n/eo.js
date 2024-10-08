@@ -1,9 +1,8 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Nuligi",
-    "Edit" : "Modifi",
     "Public link" : "Publika ligilo",
+    "Edit" : "Modifi",
     "Yes" : "Yes",
     "No" : "No"
 },

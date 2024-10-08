@@ -1,13 +1,10 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Atsisakyti",
-    "View only" : "Tik peržiūrėti",
-    "Edit" : "Taisyti",
     "Would you like to log in?" : "Ar norėtumėte prisijungti?",
     "Public link" : "Viešoji nuoroda",
-    "You are not allowed to share this file" : "Jums neleidžiama bendrinti šio failo",
-    "Error while checking if you are allowed to share this file" : "Klaida tikrinant, ar jums leidžiama bendrinti šį failą",
+    "View only" : "Tik peržiūrėti",
+    "Edit" : "Taisyti",
     "Do you want to choose another file?" : "Ar norite pasirinkti kitą failą?",
     "Choose another file?" : "Pasirinkti kitą failą?",
     "Yes" : "Taip",

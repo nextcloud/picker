@@ -1,7 +1,6 @@
 { "translations": {
-    "Cancel" : "Loobu",
-    "Edit" : "Redigeeri",
     "Public link" : "Avalik link",
+    "Edit" : "Redigeeri",
     "Yes" : "Jah",
     "No" : "Ei"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

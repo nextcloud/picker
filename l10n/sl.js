@@ -1,11 +1,9 @@
 OC.L10N.register(
     "picker",
     {
-    "in" : "v",
-    "Cancel" : "Prekliči",
+    "Public link" : "Javna povezava",
     "View only" : "Le ogled",
     "Edit" : "Uredi",
-    "Public link" : "Javna povezava",
     "Yes" : "Da",
     "No" : "Ne"
 },

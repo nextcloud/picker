@@ -1,9 +1,8 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Loobu",
-    "Edit" : "Redigeeri",
     "Public link" : "Avalik link",
+    "Edit" : "Redigeeri",
     "Yes" : "Jah",
     "No" : "Ei"
 },

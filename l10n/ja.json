@@ -1,9 +1,7 @@
 { "translations": {
-    "in" : "内",
-    "Cancel" : "キャンセル",
+    "Public link" : "公開リンク",
     "View only" : "閲覧のみ",
     "Edit" : "編集",
-    "Public link" : "公開リンク",
     "Yes" : "はい",
     "No" : "いいえ"
 },"pluralForm" :"nplurals=1; plural=0;"

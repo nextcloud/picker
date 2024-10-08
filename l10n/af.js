@@ -1,9 +1,8 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Kanselleer",
-    "Edit" : "Wysig",
     "Public link" : "Openbare skakel",
+    "Edit" : "Wysig",
     "Yes" : "Ja",
     "No" : "Nee"
 },

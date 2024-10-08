@@ -1,11 +1,9 @@
 OC.L10N.register(
     "picker",
     {
-    "in" : "in",
-    "Cancel" : "Hætta við",
+    "Public link" : "Opinber tengill",
     "View only" : "View only",
     "Edit" : "Breyta",
-    "Public link" : "Opinber tengill",
     "Yes" : "Já",
     "No" : "Nei"
 },

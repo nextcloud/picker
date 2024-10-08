@@ -1,9 +1,8 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Atcelt",
-    "Edit" : "Labot",
     "Public link" : "Publiskā saite",
+    "Edit" : "Labot",
     "Yes" : "Jā",
     "No" : "Nē"
 },

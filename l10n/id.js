@@ -1,10 +1,9 @@
 OC.L10N.register(
     "picker",
     {
-    "Cancel" : "Membatalkan",
+    "Public link" : "Tautan publik",
     "View only" : "Hanya lihat",
     "Edit" : "Sunting",
-    "Public link" : "Tautan publik",
     "Yes" : "Ya",
     "No" : "Tidak"
 },
