@@ -1,10 +1,13 @@
 OC.L10N.register(
     "picker",
     {
+    "Picker" : "Parinkiklis",
     "Would you like to log in?" : "Ar norėtumėte prisijungti?",
     "Public link" : "Viešoji nuoroda",
+    "Nextcloud picker" : "Nextcloud parinkiklis",
     "View only" : "Tik peržiūrėti",
     "Edit" : "Taisyti",
+    "Copy Internal link" : "Kopijuoti vidinę nuorodą",
     "Do you want to choose another file?" : "Ar norite pasirinkti kitą failą?",
     "Choose another file?" : "Pasirinkti kitą failą?",
     "Yes" : "Taip",
