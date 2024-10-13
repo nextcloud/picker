@@ -2,6 +2,7 @@ OC.L10N.register(
     "picker",
     {
     "Public link" : "Publiskā saite",
+    "View only" : "Tikai skatīt",
     "Edit" : "Labot",
     "Yes" : "Jā",
     "No" : "Nē"
