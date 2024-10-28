@@ -16,6 +16,7 @@ OC.L10N.register(
     "Choose a file and start collaborating" : "Choisir un fichier et commencer à collaborer",
     "View only" : "Afficher seulement",
     "Edit" : "Modifier",
+    "Choose a file you want to copy a link from" : "Choisissez un fichier à partir duquel vous souhaitez copier un lien",
     "Copy Read Only public link" : "Copier le lien public en lecture seule",
     "Copy Editable public link" : "Copier le lien public éditable  ",
     "Copy Internal link" : "Copier le lien interne",
