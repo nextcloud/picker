@@ -6,6 +6,7 @@ OC.L10N.register(
     "Would you like to log in?" : "Saioa hasi nahi duzu?",
     "Public link" : "Esteka publikoa",
     "View the file as a user" : "Ikusi fitxategia erabiltzaile bat bezala",
+    "Nextcloud picker" : "Nextcloud aukeratzailea",
     "Picker link" : "Picker esteka",
     "Choose a file and start collaborating" : "Aukeratu fitxategi bat eta hasi kolaboratzen",
     "View only" : "Ikusi soilik",
