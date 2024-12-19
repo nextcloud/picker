@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: 2022 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
 import './bootstrap.js'
 import { generateOcsUrl, generateUrl } from '@nextcloud/router'
 import { showError, getFilePickerBuilder } from '@nextcloud/dialogs'
