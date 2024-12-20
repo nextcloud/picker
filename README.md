@@ -1,4 +1,10 @@
+<!--
+  - SPDX-FileCopyrightText: 2022 Nextcloud GmbH and Nextcloud contributors
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 # Picker
+
+[![REUSE status](https://api.reuse.software/badge/github.com/nextcloud/picker)](https://api.reuse.software/info/github.com/nextcloud/picker)
 
 This app provides a page to pick a file, generate a public link and directly browse it.
 It can be used to integrate Nextcloud in other apps such as video call software.
