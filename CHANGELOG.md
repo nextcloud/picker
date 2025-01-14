@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 1.0.12 - 2025-01-14
+### Added
+- Support Nextcloud 31
+
 ## 1.0.11 - 2024-10-07
 ### Changed
 - Single page dialog picker
