@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Support Nextcloud 31
 
 ## 1.0.11 - 2024-10-07
 ### Changed
