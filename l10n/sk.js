@@ -14,6 +14,7 @@ OC.L10N.register(
     "Choose a file and start collaborating" : "Vyberte súbor a začnite spolupracovať",
     "View only" : "Iba pre čítanie",
     "Edit" : "Upraviť",
+    "Copy Internal link" : "Kopírovať interný odkaz",
     "Do you want to choose another file?" : "Chcete vybrať iný súbor?",
     "Choose another file?" : "Vybrať iný súbor?",
     "Yes" : "Áno",
