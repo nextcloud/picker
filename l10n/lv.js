@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "Would you like to log in?" : "Vai vēlies pieteikties?",
     "Public link" : "Publiskā saite",
     "View only" : "Tikai skatīt",
     "Edit" : "Labot",
