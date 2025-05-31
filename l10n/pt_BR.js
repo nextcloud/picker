@@ -14,7 +14,7 @@ OC.L10N.register(
     "Picker link" : "Link do seletor",
     "Error while creating the shared access" : "Erro enquanto cria o acesso compartilhado",
     "Choose a file and start collaborating" : "Escolha o arquivo e comece a colaborar",
-    "View only" : "Somente visualização ",
+    "View only" : "Somente visualização",
     "Edit" : "Editar",
     "Choose a file you want to copy a link from" : "Escolha um arquivo do qual deseja copiar um link",
     "Copy Read Only public link" : "Copiar link público Somente Leitura",
