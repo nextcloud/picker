@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "Public link" : "Агульнадаступная папка",
     "Yes" : "Так",
     "No" : "Не"
 },
