@@ -1,7 +1,7 @@
 OC.L10N.register(
     "picker",
     {
-    "Public link" : "Агульнадаступная папка",
+    "Public link" : "Публічная спасылка",
     "View only" : "Толькі прагляд",
     "Edit" : "Рэдагаваць",
     "Yes" : "Так",
