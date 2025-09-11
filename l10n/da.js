@@ -4,7 +4,7 @@ OC.L10N.register(
     "Picker" : "Vælger",
     "Public link" : "Offentligt link",
     "View only" : "Kun visning",
-    "Edit" : "Rediger",
+    "Edit" : "Redigér",
     "Choose a file you want to copy a link from" : "Vælg en fil, du vil kopiere et link fra",
     "Copy Read Only public link" : "Kopier skrivebeskyttet offentligt link",
     "Copy Editable public link" : "Kopier redigerbart offentligt link",
