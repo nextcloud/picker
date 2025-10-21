@@ -4,6 +4,7 @@ OC.L10N.register(
     "Public link" : "Ligam public",
     "View only" : "Veire solament",
     "Edit" : "Modificar",
+    "Copy Internal link" : "Copiar lo ligam intèrn",
     "Yes" : "Òc",
     "No" : "Non"
 },
