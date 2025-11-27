@@ -4,6 +4,7 @@ OC.L10N.register(
     "Public link" : "Hiperligação Pública",
     "View only" : "Visualizar apenas",
     "Edit" : "Editar",
+    "Copy Internal link" : "Copiar link interno",
     "Yes" : "Sim",
     "No" : "Não"
 },
