@@ -12,6 +12,7 @@ OC.L10N.register(
     "Choose a file and start collaborating" : "Valitse tiedosto ja aloita yhteistyö",
     "View only" : "Vain katselu",
     "Edit" : "Muokkaa",
+    "Copy Internal link" : "Kopioi sisäinen linkki",
     "Do you want to choose another file?" : "Haluatko valita toisen tiedoston?",
     "Choose another file?" : "Valitaanko toinen tiedosto?",
     "Yes" : "Kyllä",
