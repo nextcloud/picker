@@ -23,6 +23,6 @@ It can be used to integrate Nextcloud in other apps such as a video call softwar
 	<screenshot>https://github.com/julien-nc/picker/raw/master/img/screenshot2.png</screenshot>
 	<screenshot>https://github.com/julien-nc/picker/raw/master/img/screenshot3.png</screenshot>
 	<dependencies>
-        <nextcloud min-version="27" max-version="32"/>
+        <nextcloud min-version="27" max-version="33"/>
     </dependencies>
 </info>
