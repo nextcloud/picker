@@ -22,7 +22,7 @@ OC.L10N.register(
     "Copy Internal link" : "ئىچكى ئۇلىنىشنى كۆچۈرۈڭ",
     "Do you want to choose another file?" : "باشقا ھۆججەت تاللىماقچىمۇ؟",
     "Choose another file?" : "باشقا ھۆججەتنى تاللاڭ؟",
-    "Yes" : "Yes",
-    "No" : "No"
+    "Yes" : "ماقۇل",
+    "No" : "ياق"
 },
 "nplurals=2; plural=(n != 1);");
