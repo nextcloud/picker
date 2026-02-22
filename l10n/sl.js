@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support." : "This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support.",
     "Public link" : "Javna povezava",
     "View only" : "Le ogled",
     "Edit" : "Uredi",
