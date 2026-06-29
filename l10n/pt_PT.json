@@ -1,7 +1,10 @@
 { "translations": {
+    "Picker" : "Seletor",
     "Public link" : "Hiperligação Pública",
+    "Nextcloud picker" : "Seletor Nextcloud",
     "View only" : "Visualizar apenas",
     "Edit" : "Editar",
+    "Choose a file you want to copy a link from" : "Escolha um arquivo do qual deseja copiar um link",
     "Copy Internal link" : "Copiar link interno",
     "Yes" : "Sim",
     "No" : "Não"
