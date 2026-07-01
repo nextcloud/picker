@@ -3,15 +3,18 @@ OC.L10N.register(
     {
     "Picker" : "Seletor",
     "Pick a file and share it" : "Escolha um arquivo e compartilhe-o",
+    "This app provides a page to pick a file, generate a public link and directly browse it.\nIt can be used to integrate Nextcloud in other apps such as a video call software." : "Esse aplicativo fornece uma página para escolher um arquivo, gerar um link público e navegar diretamente por ele.\nEle pode ser usado para integrar o Nextcloud a outros aplicativos, como um software de chamada de vídeo.",
     "Public link" : "Hiperligação Pública",
     "View the file as a user" : "Ver o arquivo como um usuário",
     "Nextcloud picker" : "Seletor Nextcloud",
+    "Picker link" : "Link do seletor",
     "Error while creating the shared access" : "Erro ao cria5 o acesso compartilhado",
     "View only" : "Visualizar apenas",
     "Edit" : "Editar",
     "Choose a file you want to copy a link from" : "Escolha um arquivo do qual deseja copiar um link",
     "Copy Editable public link" : "Copiar link público Editável",
     "Copy Internal link" : "Copiar link interno",
+    "Do you want to choose another file?" : "Você quer escolher outro arquivo?",
     "Yes" : "Sim",
     "No" : "Não"
 },
