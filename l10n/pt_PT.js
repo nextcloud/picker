@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "This feature requires Nextcloud Enterprise for instances with more than 500 users. Please contact Nextcloud support." : "Este recurso requer o Nextcloud Empresarial para instancias com mais de 500 usuários. Por favor, contate o suporte Nextcloud.",
     "Nextcloud support" : "Suporte Nextcloud",
     "Picker" : "Seletor",
     "Pick a file and share it" : "Escolha um arquivo e compartilhe-o",
@@ -19,6 +20,7 @@ OC.L10N.register(
     "Copy Editable public link" : "Copiar link público Editável",
     "Copy Internal link" : "Copiar link interno",
     "Do you want to choose another file?" : "Você quer escolher outro arquivo?",
+    "Choose another file?" : "Escolher outro arquivo?",
     "Yes" : "Sim",
     "No" : "Não"
 },
