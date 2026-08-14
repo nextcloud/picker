@@ -34,7 +34,6 @@ use OCP\IURLGenerator;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
-
 use Throwable;
 
 class PageController extends Controller {
@@ -223,7 +222,7 @@ class PageController extends Controller {
 			} elseif ($preview['type'] === 'icon') {
 				return new RedirectResponse($preview['icon']);
 			}
-		} catch (Exception | Throwable $e) {
+		} catch (Exception|Throwable $e) {
 			$this->logger->error('getImage error', ['exception' => $e]);
 			return new DataResponse('', Http::STATUS_NOT_FOUND);
 		}

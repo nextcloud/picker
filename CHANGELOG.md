@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 1.1.0 - 2026-08-12
+### Added
+- support Nextcloud 35
+
+### Removed
+- remove support for Nextcloud 32 and below
+
 ## 1.0.15 - 2025-05-06
 ### Added
 - Support Nextcloud 34
