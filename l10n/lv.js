@@ -1,6 +1,7 @@
 OC.L10N.register(
     "picker",
     {
+    "Nextcloud support" : "Nextcloud atbalsts",
     "Would you like to log in?" : "Vai vēlies pieteikties?",
     "Public link" : "Publiskā saite",
     "View only" : "Tikai skatīt",
